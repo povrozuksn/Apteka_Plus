@@ -15,6 +15,14 @@ namespace Apteka_Plus
         public MainForm()
         {
             InitializeComponent();
+
+            Text = "Аптека Плюс";
+
+            MainUserControl mainUC = new MainUserControl();
+            mainUC.Dock = DockStyle.Fill;
+            InfoPanel.Controls.Clear();
+            InfoPanel.Controls.Add(mainUC);
+
         }
     }
 }
