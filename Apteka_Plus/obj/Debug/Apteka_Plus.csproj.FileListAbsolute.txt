@@ -11,3 +11,4 @@ C:\Users\root\Source\Repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.exe
 C:\Users\root\Source\Repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.pdb
 C:\Users\root\Source\Repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.MainUserControl.resources
 C:\Users\root\Source\Repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.AptekaUserControl.resources
+C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.MedicomentUserControl.resources

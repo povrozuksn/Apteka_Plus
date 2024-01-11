@@ -64,6 +64,12 @@
     <Compile Include="MainUserControl.Designer.cs">
       <DependentUpon>MainUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedicomentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MedicomentUserControl.Designer.cs">
+      <DependentUpon>MedicomentUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AptekaUserControl.resx">
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainUserControl.resx">
       <DependentUpon>MainUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicomentUserControl.resx">
+      <DependentUpon>MedicomentUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
