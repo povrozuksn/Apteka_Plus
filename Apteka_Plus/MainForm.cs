@@ -24,5 +24,32 @@ namespace Apteka_Plus
             InfoPanel.Controls.Add(mainUC);
 
         }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if(e.Node.Level == 0 && e.Node.Text == "Аптеки")
+            {
+                MainUserControl mainUC = new MainUserControl();
+                mainUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(mainUC);
+            }
+            
+            else if(e.Node.Level == 1 && e.Node.Parent.Text == "Аптеки")
+            {
+                AptekaUserControl aptekaUC = new AptekaUserControl(e.Node.Tag.ToString());
+                aptekaUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(aptekaUC);
+            }
+
+            else if (e.Node.Level == 2 && e.Node.Parent.Parent.Text == "Аптеки")
+            {
+                MedicomentUserControl medicokaUC = new MedicomentUserControl(e.Node.Tag.ToString());
+                medicokaUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(medicokaUC);
+            }
+        }
     }
 }

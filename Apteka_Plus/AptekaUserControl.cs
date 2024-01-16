@@ -16,15 +16,9 @@ namespace Apteka_Plus
         {
             InitializeComponent();
 
-            pictureBox1.Load("../../Pictures/Аптека" + id + ".jpg");
-        }
+            NumberLabel.Text = id;
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MainUserControl mainUC = new MainUserControl();
-            Controls.Clear();
-            Controls.Add(mainUC);
-            mainUC.Dock = DockStyle.None;
+            pictureBox1.Load("../../Pictures/Аптека" + id + ".jpg");
         }
 
         private void label1_Click(object sender, EventArgs e)

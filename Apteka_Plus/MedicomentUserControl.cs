@@ -17,14 +17,6 @@ namespace Apteka_Plus
             InitializeComponent();
 
             pictureBox1.Load("../../Pictures/" + id + ".jpg");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AptekaUserControl aptekaUC = new AptekaUserControl("1");
-            Controls.Clear();
-            Controls.Add(aptekaUC);
-            aptekaUC.Dock = DockStyle.None;
-        }
+        }        
     }
 }
