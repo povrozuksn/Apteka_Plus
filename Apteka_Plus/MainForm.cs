@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace Apteka_Plus
 {
@@ -50,6 +52,11 @@ namespace Apteka_Plus
                 InfoPanel.Controls.Clear();
                 InfoPanel.Controls.Add(medicokaUC);
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            List<string> apteks = SQLClass.MySelect("SELECT id, name FROM level1");
         }
     }
 }
