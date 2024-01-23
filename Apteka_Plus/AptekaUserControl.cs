@@ -18,7 +18,11 @@ namespace Apteka_Plus
 
             NumberLabel.Text = id;
 
-            pictureBox1.Load("../../Pictures/Аптека" + id + ".jpg");
+            try
+            {
+                pictureBox1.Load("../../Pictures/Аптека" + id + ".jpg");
+            }
+            catch (Exception) { }
         }
 
         private void label1_Click(object sender, EventArgs e)

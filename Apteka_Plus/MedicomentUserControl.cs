@@ -16,7 +16,11 @@ namespace Apteka_Plus
         {
             InitializeComponent();
 
-            pictureBox1.Load("../../Pictures/" + id + ".jpg");
+            try
+            {
+                pictureBox1.Load("../../Pictures/" + id + ".jpg");
+            }
+            catch (Exception) { }
         }        
     }
 }
