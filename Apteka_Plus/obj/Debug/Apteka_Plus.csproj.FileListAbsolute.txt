@@ -14,3 +14,4 @@ C:\Users\root\Source\Repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.AptekaU
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.MedicomentUserControl.resources
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\bin\Debug\MySql.Data.dll
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.csproj.CopyComplete
+C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.ClassificatorUserControl.resources

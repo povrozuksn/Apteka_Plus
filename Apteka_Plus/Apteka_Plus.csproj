@@ -55,6 +55,12 @@
     <Compile Include="AptekaUserControl.Designer.cs">
       <DependentUpon>AptekaUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassificatorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClassificatorUserControl.Designer.cs">
+      <DependentUpon>ClassificatorUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     <Compile Include="SQLClass.cs" />
     <EmbeddedResource Include="AptekaUserControl.resx">
       <DependentUpon>AptekaUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassificatorUserControl.resx">
+      <DependentUpon>ClassificatorUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

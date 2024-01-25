@@ -24,9 +24,44 @@ namespace Apteka_Plus
             mainUC.Dock = DockStyle.Fill;
             InfoPanel.Controls.Clear();
             InfoPanel.Controls.Add(mainUC);
-
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            string id_apteka;
+            string id_classif;
+
+            List<string> apteks = SQLClass.MySelect("SELECT id, name FROM level1");
+
+            for (int i = 0; i < apteks.Count; i += 2)
+            {
+                id_apteka = apteks[i];
+                TreeNode node0 = new TreeNode(apteks[i + 1]);
+                node0.Tag = apteks[i];
+                treeView1.Nodes[0].Nodes.Add(node0);
+
+                List<string> classif = SQLClass.MySelect("SELECT id, name FROM level2 WHERE id_apteka = '" + id_apteka + "'");
+
+                for (int j = 0; j < classif.Count; j += 2)
+                {
+                    id_classif = classif[j];
+                    TreeNode node1 = new TreeNode(classif[j + 1]);
+                    node1.Tag = classif[j];
+                    node0.Nodes.Add(node1);
+
+                    List<string> medicoments = SQLClass.MySelect("SELECT id, name FROM level3 WHERE id_class = '" + id_classif + "'");
+
+                    for (int g = 0; g < medicoments.Count; g += 2)
+                    {
+                        TreeNode node2 = new TreeNode(medicoments[g + 1]);
+                        node2.Tag = medicoments[g];
+                        node1.Nodes.Add(node2);
+                    }
+                }
+
+            }
+        }
+        
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if(e.Node.Level == 0 && e.Node.Text == "Аптеки")
@@ -47,6 +82,14 @@ namespace Apteka_Plus
 
             else if (e.Node.Level == 2 && e.Node.Parent.Parent.Text == "Аптеки")
             {
+                ClassificatorUserControl classUC = new ClassificatorUserControl(e.Node.Tag.ToString());
+                classUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(classUC);
+            }
+
+            else if (e.Node.Level == 3 && e.Node.Parent.Parent.Parent.Text == "Аптеки")
+            {
                 MedicomentUserControl medicokaUC = new MedicomentUserControl(e.Node.Tag.ToString());
                 medicokaUC.Dock = DockStyle.Fill;
                 InfoPanel.Controls.Clear();
@@ -54,40 +97,5 @@ namespace Apteka_Plus
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            string id_apteka;
-            string id_classif;
-
-            List<string> apteks = SQLClass.MySelect("SELECT id, name FROM level1");
-
-            for(int i = 0; i < apteks.Count; i += 2)
-            {
-                id_apteka = apteks[i];
-                TreeNode node0 = new TreeNode(apteks[i+1]);
-                node0.Tag = apteks[i];
-                treeView1.Nodes[0].Nodes.Add(node0);
-
-                List<string> classif = SQLClass.MySelect("SELECT id, name FROM level2 WHERE id_apteka = '" + id_apteka + "'");
-
-                for (int j = 0; j < classif.Count; j += 2)
-                {
-                    id_classif = classif[j];
-                    TreeNode node1 = new TreeNode(classif[j + 1]);
-                    node1.Tag = classif[j];
-                    node0.Nodes.Add(node1);
-
-                    List<string> medicoments = SQLClass.MySelect("SELECT id, name FROM level3 WHERE id_apteka = '" + id_apteka + "' AND id_class = '" + id_classif + "'");
-
-                    for(int g = 0; g < medicoments.Count; g += 2)
-                    {
-                        TreeNode node2 = new TreeNode(medicoments[g + 1]);
-                        node2.Tag = medicoments[g];
-                        node1.Nodes.Add(node2);
-                    }
-                }
-
-            }
-        }
     }
 }

@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace Apteka_Plus
 {
-    public partial class MedicomentUserControl : UserControl
+    public partial class ClassificatorUserControl : UserControl
     {
-        public MedicomentUserControl(string id)
+        public ClassificatorUserControl(string id)
         {
             InitializeComponent();
 
-            List<string> medicoment = SQLClass.MySelect("SELECT id, name, pic FROM level3 WHERE id = '" + id + "'");
+            List<string> classific = SQLClass.MySelect("SELECT id, name, pic FROM level2 WHERE id = '" + id + "'");
 
-            NameLabel.Text = medicoment[1];
+            NameLabel.Text = classific[1];
 
             try
             {
-                pictureBox1.Load("../../Pictures/" + medicoment[2]);
+                pictureBox1.Load("../../Pictures/" + classific[2]);
             }
             catch (Exception) { }
-        }        
+        }
     }
 }
