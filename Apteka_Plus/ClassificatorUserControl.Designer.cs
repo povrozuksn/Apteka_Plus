@@ -30,13 +30,14 @@
         {
             this.NameLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ViewPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(39, 40);
+            this.NameLabel.Location = new System.Drawing.Point(3, 0);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(64, 25);
             this.NameLabel.TabIndex = 3;
@@ -44,17 +45,26 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(42, 94);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 28);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(391, 307);
+            this.pictureBox1.Size = new System.Drawing.Size(214, 138);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // ViewPanel
+            // 
+            this.ViewPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ViewPanel.Location = new System.Drawing.Point(0, 172);
+            this.ViewPanel.Name = "ViewPanel";
+            this.ViewPanel.Size = new System.Drawing.Size(769, 337);
+            this.ViewPanel.TabIndex = 4;
             // 
             // ClassificatorUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ViewPanel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -71,5 +81,6 @@
 
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel ViewPanel;
     }
 }
