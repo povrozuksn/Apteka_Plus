@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,10 @@ namespace Apteka_Plus
 {
     public partial class MainForm : Form
     {
+        public static int isAdmin;
+        public static string Login = "";
+        public static string NameFamily = "";
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,6 +29,8 @@ namespace Apteka_Plus
             mainUC.Dock = DockStyle.Fill;
             InfoPanel.Controls.Clear();
             InfoPanel.Controls.Add(mainUC);
+
+            AdminFormButton.Visible = false;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -95,7 +102,94 @@ namespace Apteka_Plus
                 InfoPanel.Controls.Clear();
                 InfoPanel.Controls.Add(medicokaUC);
             }
+
+            else if (e.Node.Level == 0 && e.Node.Text == "Админка")
+            {
+                AdminUserControl adminUC = new AdminUserControl();
+                adminUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(adminUC);
+            }
         }
 
+        private void AuthButton_Click(object sender, EventArgs e)
+        {
+            List<string> user_date = SQLClass.MySelect("SELECT login, name, familiya, admin FROM users WHERE login = '" + LoginTextBox.Text + "' AND pass = '" + PassTextBox.Text + "'");
+
+            if (AuthButton.Text == "Выйти")
+            {
+                Login = "";
+                AuthPanel.Controls.Clear();
+                AuthPanel.Controls.Add(LoginLabel);
+                LoginTextBox.Text = "";
+                AuthPanel.Controls.Add(LoginTextBox);
+                AuthPanel.Controls.Add(PassLabel);
+                PassTextBox.Text = "";
+                AuthPanel.Controls.Add(PassTextBox);
+                AuthButton.Text = "Войти";
+                AuthPanel.Controls.Add(AuthButton);
+                AuthPanel.Controls.Add(RegButton);
+                HelloLabel.Visible = false;
+                HelloLabel.Text = "";
+                isAdmin = 0;
+
+            }
+            else
+            {
+                if (user_date.Count > 0)
+                {
+                    isAdmin = Convert.ToInt32(user_date[3]);
+                    Login = user_date[0];
+                    NameFamily = user_date[1] + " " + user_date[2];
+                    AuthPanel.Controls.Clear();
+                    AuthButton.Text = "Выйти";
+                    AuthPanel.Controls.Add(AuthButton);
+                    AuthPanel.Controls.Add(HelloLabel);
+                    HelloLabel.Visible = true;
+                    HelloLabel.Text = "Приветствуем Вас, " + NameFamily;
+                    AdminFormButton.Visible = Convert.ToBoolean(isAdmin);
+                    AuthPanel.Controls.Add(AdminFormButton);
+                }
+                else
+                {
+                    var result = MessageBox.Show("Вы указали неверный логин/пароль", "Зарегистрироваться", MessageBoxButtons.YesNo);
+                    LoginTextBox.Text = "";
+                    PassTextBox.Text = "";
+                    if (result == DialogResult.Yes)
+                    {
+                        RegForm reg = new RegForm();
+                        reg.ShowDialog();
+                    }
+                }
+
+            }
+        }
+
+        private void RegButton_Click(object sender, EventArgs e)
+        {
+            RegForm reg = new RegForm();
+            reg.ShowDialog();
+        }
+
+        private void AdminFormButton_Click(object sender, EventArgs e)
+        {
+            AdminUserControl adminUC = new AdminUserControl();
+            adminUC.Dock = DockStyle.Fill;
+            InfoPanel.Controls.Clear();
+            InfoPanel.Controls.Add(adminUC);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(Convert.ToBoolean(isAdmin) && treeView1.Nodes.Count == 1)
+            {
+                TreeNode node = new TreeNode("Админка");
+                treeView1.Nodes.Add(node);
+            }
+            else if(!Convert.ToBoolean(isAdmin) && treeView1.Nodes.Count > 1)
+            {
+                treeView1.Nodes.RemoveAt(1);
+            }
+        }
     }
 }
