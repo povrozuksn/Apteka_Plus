@@ -31,6 +31,7 @@ namespace Apteka_Plus
             InfoPanel.Controls.Add(mainUC);
 
             AdminFormButton.Visible = false;
+            DisignButton.Visible = false;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -110,7 +111,48 @@ namespace Apteka_Plus
                 InfoPanel.Controls.Clear();
                 InfoPanel.Controls.Add(adminUC);
             }
+
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Админка" && e.Node.Text == "Управление аптеками")
+            {
+                AdminApteksUC adminapteksUC = new AdminApteksUC();
+                adminapteksUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(adminapteksUC);
+            }
+
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Админка" && e.Node.Text == "Управление классификатором")
+            {
+                AdminKlassUC adminklassUC = new AdminKlassUC();
+                adminklassUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(adminklassUC);
+            }
+
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Админка" && e.Node.Text == "Управление медикоментами")
+            {
+                AdminMedicUC adminmedicUC = new AdminMedicUC();
+                adminmedicUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(adminmedicUC);
+            }
+
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Админка" && e.Node.Text == "Управление пользователями")
+            {
+                AdminUsersUC adminusersUC = new AdminUsersUC();
+                adminusersUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(adminusersUC);
+            }
+
+            else if (e.Node.Level == 0 && e.Node.Text == "Дизайн")
+            {
+                DisignUserControl disignUC = new DisignUserControl();
+                disignUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(disignUC);
+            }
         }
+
 
         private void AuthButton_Click(object sender, EventArgs e)
         {
@@ -149,6 +191,8 @@ namespace Apteka_Plus
                     HelloLabel.Text = "Приветствуем Вас, " + NameFamily;
                     AdminFormButton.Visible = Convert.ToBoolean(isAdmin);
                     AuthPanel.Controls.Add(AdminFormButton);
+                    DisignButton.Visible = Convert.ToBoolean(isAdmin);
+                    AuthPanel.Controls.Add(DisignButton);
                 }
                 else
                 {
@@ -185,11 +229,34 @@ namespace Apteka_Plus
             {
                 TreeNode node = new TreeNode("Админка");
                 treeView1.Nodes.Add(node);
+
+                TreeNode node1 = new TreeNode("Управление аптеками");
+                node.Nodes.Add(node1);
+
+                TreeNode node2 = new TreeNode("Управление классификатором");
+                node.Nodes.Add(node2);
+
+                TreeNode node3 = new TreeNode("Управление медикоментами");
+                node.Nodes.Add(node3);
+
+                TreeNode node4 = new TreeNode("Управление пользователями");
+                node.Nodes.Add(node4);
+
+                TreeNode nodeDisign = new TreeNode("Дизайн");
+                treeView1.Nodes.Add(nodeDisign);
             }
             else if(!Convert.ToBoolean(isAdmin) && treeView1.Nodes.Count > 1)
             {
                 treeView1.Nodes.RemoveAt(1);
             }
+        }
+
+        private void DisignButton_Click(object sender, EventArgs e)
+        {
+            DisignUserControl disignUC = new DisignUserControl();
+            disignUC.Dock = DockStyle.Fill;
+            InfoPanel.Controls.Clear();
+            InfoPanel.Controls.Add(disignUC);
         }
     }
 }

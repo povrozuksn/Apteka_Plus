@@ -17,3 +17,8 @@ C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.csproj.
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.ClassificatorUserControl.resources
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.RegForm.resources
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.AdminUserControl.resources
+C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.AdminApteksUC.resources
+C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.AdminKlassUC.resources
+C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.AdminMedicUC.resources
+C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.AdminUsersUC.resources
+C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.DisignUserControl.resources

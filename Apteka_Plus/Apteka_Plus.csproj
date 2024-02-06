@@ -49,11 +49,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminApteksUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminApteksUC.Designer.cs">
+      <DependentUpon>AdminApteksUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminKlassUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminKlassUC.Designer.cs">
+      <DependentUpon>AdminKlassUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMedicUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminMedicUC.Designer.cs">
+      <DependentUpon>AdminMedicUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AdminUserControl.Designer.cs">
       <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUsersUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUsersUC.Designer.cs">
+      <DependentUpon>AdminUsersUC.cs</DependentUpon>
     </Compile>
     <Compile Include="AptekaUserControl.cs">
       <SubType>UserControl</SubType>
@@ -66,6 +90,12 @@
     </Compile>
     <Compile Include="ClassificatorUserControl.Designer.cs">
       <DependentUpon>ClassificatorUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisignUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DisignUserControl.Designer.cs">
+      <DependentUpon>DisignUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -94,14 +124,29 @@
       <DependentUpon>RegForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLClass.cs" />
+    <EmbeddedResource Include="AdminApteksUC.resx">
+      <DependentUpon>AdminApteksUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminKlassUC.resx">
+      <DependentUpon>AdminKlassUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminMedicUC.resx">
+      <DependentUpon>AdminMedicUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminUserControl.resx">
       <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUsersUC.resx">
+      <DependentUpon>AdminUsersUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AptekaUserControl.resx">
       <DependentUpon>AptekaUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClassificatorUserControl.resx">
       <DependentUpon>ClassificatorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisignUserControl.resx">
+      <DependentUpon>DisignUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
