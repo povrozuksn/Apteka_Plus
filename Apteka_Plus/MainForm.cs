@@ -32,6 +32,8 @@ namespace Apteka_Plus
 
             AdminFormButton.Visible = false;
             DisignButton.Visible = false;
+
+            DisignUserControl.ReadDefaultDisign();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

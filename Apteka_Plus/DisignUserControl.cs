@@ -12,8 +12,10 @@ namespace Apteka_Plus
 {
     public partial class DisignUserControl : UserControl
     {
-        Font LABEL_FONT;
-        Color LABEL_COLOR;
+        #region Параметры НАДПИСИ
+        public static Font LABEL_FONT;
+        public static Color LABEL_COLOR;
+        #endregion
 
         public DisignUserControl()
         {
@@ -29,7 +31,24 @@ namespace Apteka_Plus
 
                 SampleLabel.Font = LABEL_FONT;
                 SampleLabel.ForeColor = LABEL_COLOR;
+
+                SQLClass.MyUpDate("DELETE FROM defaultdisign WHERE type = '" + SampleLabel.GetType() + "' AND parametr = 'FONT'");
+                SQLClass.MyUpDate("DELETE FROM defaultdisign WHERE type = '" + SampleLabel.GetType() + "' AND parametr = 'FONT_COLOR'");
+
+                SQLClass.MyUpDate("INSERT INTO defaultdisign (type, parametr, value) VALUE ('" + SampleLabel.GetType() + "', 'FONT', '" + LABEL_FONT.Name + ";" + LABEL_FONT.Size.ToString() + "')");
+                SQLClass.MyUpDate("INSERT INTO defaultdisign (type, parametr, value) VALUE ('" + SampleLabel.GetType() + "', 'FONT_COLOR', '" + LABEL_COLOR.ToArgb() + "')");
             }
+        }
+
+        public static void ReadDefaultDisign()
+        {
+            //Чтение параметров НАДПИСИ
+            string font = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Label' AND parametr = 'FONT'")[0];
+            string[] parts = font.Split(new char[] { ';' });
+            LABEL_FONT = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
+
+            string color = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Label' AND parametr = 'FONT_COLOR'")[0];
+            //LABEL_COLOR = color
         }
     }
 }
