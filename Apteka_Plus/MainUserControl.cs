@@ -46,6 +46,7 @@ namespace Apteka_Plus
                 x += 210;
             }
 
+            DisignUserControl.ApplyDisign(this);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -15,6 +15,8 @@ namespace Apteka_Plus
         public AdminUserControl()
         {
             InitializeComponent();
+
+            DisignUserControl.ApplyDisign(this);
         }
 
         private void AdminApteksBTN_Click(object sender, EventArgs e)

@@ -15,6 +15,8 @@ namespace Apteka_Plus
         public AdminKlassUC()
         {
             InitializeComponent();
+
+            DisignUserControl.ApplyDisign(this);
         }
     }
 }

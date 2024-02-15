@@ -34,6 +34,7 @@ namespace Apteka_Plus
             DisignButton.Visible = false;
 
             DisignUserControl.ReadDefaultDisign();
+            DisignUserControl.ApplyDisign(this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -70,6 +71,7 @@ namespace Apteka_Plus
                 }
 
             }
+
         }
         
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -227,7 +229,9 @@ namespace Apteka_Plus
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(Convert.ToBoolean(isAdmin) && treeView1.Nodes.Count == 1)
+            DisignUserControl.ApplyDisign(this);
+
+            if (Convert.ToBoolean(isAdmin) && treeView1.Nodes.Count == 1)
             {
                 TreeNode node = new TreeNode("Админка");
                 treeView1.Nodes.Add(node);

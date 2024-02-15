@@ -16,6 +16,8 @@ namespace Apteka_Plus
         {
             InitializeComponent();
 
+            DisignUserControl.ApplyDisign(this);
+
             List<string> medicoment = SQLClass.MySelect("SELECT id, name, pic FROM level3 WHERE id = '" + id + "'");
 
             NameLabel.Text = medicoment[1];

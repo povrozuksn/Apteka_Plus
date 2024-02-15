@@ -15,6 +15,8 @@ namespace Apteka_Plus
         public RegForm()
         {
             InitializeComponent();
+
+            DisignUserControl.ApplyDisign(this);
         }
     }
 }

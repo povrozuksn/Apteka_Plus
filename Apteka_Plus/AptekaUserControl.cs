@@ -59,6 +59,8 @@ namespace Apteka_Plus
 
 
 
+            DisignUserControl.ApplyDisign(this);
+
         }
 
         private void label_Click(object sender, EventArgs e)

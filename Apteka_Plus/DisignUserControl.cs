@@ -20,11 +20,15 @@ namespace Apteka_Plus
         public DisignUserControl()
         {
             InitializeComponent();
+            DisignUserControl.ApplyDisign(this);
         }
 
         private void EditLabelBTN_Click(object sender, EventArgs e)
         {
-            if(fontDialog1.ShowDialog() == DialogResult.OK)
+            fontDialog1.Font  = LABEL_FONT;
+            fontDialog1.Color  = LABEL_COLOR;
+
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
             {
                 LABEL_FONT = fontDialog1.Font;
                 LABEL_COLOR = fontDialog1.Color;
@@ -43,12 +47,32 @@ namespace Apteka_Plus
         public static void ReadDefaultDisign()
         {
             //Чтение параметров НАДПИСИ
-            string font = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Label' AND parametr = 'FONT'")[0];
-            string[] parts = font.Split(new char[] { ';' });
-            LABEL_FONT = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
+            try
+            {
+                string font = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Label' AND parametr = 'FONT'")[0];
+                string[] parts = font.Split(new char[] { ';' });
+                LABEL_FONT = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
 
-            string color = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Label' AND parametr = 'FONT_COLOR'")[0];
-            //LABEL_COLOR = color
+                string color = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Label' AND parametr = 'FONT_COLOR'")[0];
+                LABEL_COLOR = Color.FromArgb(Convert.ToInt32(color));
+            }
+            catch (Exception) { }
+        }
+
+        public static void ApplyDisign(Control Form)
+        {
+            foreach (Control ctrl in Form.Controls)
+            {
+                if(ctrl is Label)
+                {
+                    ctrl.Font = LABEL_FONT;
+                    ctrl.ForeColor = LABEL_COLOR;
+                }
+                else
+                {
+                    ApplyDisign(ctrl);
+                }
+            }
         }
     }
 }
