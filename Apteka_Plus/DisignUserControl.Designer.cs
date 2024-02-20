@@ -38,11 +38,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.EditPanelBTN = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.EditTextBoxBTN2 = new System.Windows.Forms.Button();
+            this.SamplTextBox = new System.Windows.Forms.TextBox();
+            this.EditTextBoxBTN1 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.EditTextBoxBTN = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -143,14 +144,46 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBox1);
-            this.tabPage3.Controls.Add(this.EditTextBoxBTN);
+            this.tabPage3.Controls.Add(this.EditTextBoxBTN2);
+            this.tabPage3.Controls.Add(this.SamplTextBox);
+            this.tabPage3.Controls.Add(this.EditTextBoxBTN1);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(900, 446);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Дизайн ТекстБоксов";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // EditTextBoxBTN2
+            // 
+            this.EditTextBoxBTN2.Location = new System.Drawing.Point(100, 180);
+            this.EditTextBoxBTN2.Name = "EditTextBoxBTN2";
+            this.EditTextBoxBTN2.Size = new System.Drawing.Size(250, 45);
+            this.EditTextBoxBTN2.TabIndex = 6;
+            this.EditTextBoxBTN2.Text = "Изменить Цвет";
+            this.EditTextBoxBTN2.UseVisualStyleBackColor = true;
+            this.EditTextBoxBTN2.Click += new System.EventHandler(this.EditTextBoxBTN2_Click);
+            // 
+            // SamplTextBox
+            // 
+            this.SamplTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.SamplTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SamplTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SamplTextBox.Location = new System.Drawing.Point(400, 120);
+            this.SamplTextBox.Name = "SamplTextBox";
+            this.SamplTextBox.Size = new System.Drawing.Size(248, 30);
+            this.SamplTextBox.TabIndex = 5;
+            this.SamplTextBox.Text = "Образец ТекстБокса";
+            // 
+            // EditTextBoxBTN1
+            // 
+            this.EditTextBoxBTN1.Location = new System.Drawing.Point(100, 120);
+            this.EditTextBoxBTN1.Name = "EditTextBoxBTN1";
+            this.EditTextBoxBTN1.Size = new System.Drawing.Size(250, 45);
+            this.EditTextBoxBTN1.TabIndex = 0;
+            this.EditTextBoxBTN1.Text = "Изменить Текст";
+            this.EditTextBoxBTN1.UseVisualStyleBackColor = true;
+            this.EditTextBoxBTN1.Click += new System.EventHandler(this.EditTextBoxBTN1_Click);
             // 
             // tabPage4
             // 
@@ -164,26 +197,6 @@
             // fontDialog1
             // 
             this.fontDialog1.ShowColor = true;
-            // 
-            // EditTextBoxBTN
-            // 
-            this.EditTextBoxBTN.Location = new System.Drawing.Point(100, 120);
-            this.EditTextBoxBTN.Name = "EditTextBoxBTN";
-            this.EditTextBoxBTN.Size = new System.Drawing.Size(250, 45);
-            this.EditTextBoxBTN.TabIndex = 0;
-            this.EditTextBoxBTN.Text = "Изменить ТехстБокс";
-            this.EditTextBoxBTN.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox1.Location = new System.Drawing.Point(400, 120);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(248, 30);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "Образец ТекстБокса";
             // 
             // DisignUserControl
             // 
@@ -222,7 +235,8 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button EditTextBoxBTN;
+        private System.Windows.Forms.TextBox SamplTextBox;
+        private System.Windows.Forms.Button EditTextBoxBTN1;
+        private System.Windows.Forms.Button EditTextBoxBTN2;
     }
 }

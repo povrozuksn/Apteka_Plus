@@ -21,6 +21,12 @@ namespace Apteka_Plus
         public static Color PANEL_COLOR;
         #endregion
 
+        #region Параметры ТЕКСТБОКСА
+        public static Font TEXTBOX_FONT;
+        public static Color TEXTBOX_FORECOLOR;
+        public static Color TEXTBOX_BACKCOLOR;
+        #endregion
+
 
 
         public DisignUserControl()
@@ -125,5 +131,33 @@ namespace Apteka_Plus
             }
         }
         #endregion
+
+        private void EditTextBoxBTN1_Click(object sender, EventArgs e)
+        {
+            fontDialog1.Font = TEXTBOX_FONT;
+            fontDialog1.Color = TEXTBOX_FORECOLOR;
+
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                TEXTBOX_FONT = fontDialog1.Font;
+                TEXTBOX_FORECOLOR = fontDialog1.Color;
+
+                SamplTextBox.Font = TEXTBOX_FONT;
+                SamplTextBox.ForeColor = TEXTBOX_FORECOLOR;
+            }
+
+        }
+
+        private void EditTextBoxBTN2_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = TEXTBOX_BACKCOLOR;
+
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                TEXTBOX_BACKCOLOR = colorDialog1.Color;
+
+                SamplTextBox.BackColor = TEXTBOX_BACKCOLOR;
+            }
+        }
     }
 }
