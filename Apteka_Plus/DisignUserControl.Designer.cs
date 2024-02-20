@@ -36,13 +36,17 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.SamplePanel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.EditPanelBTN = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.EditTextBoxBTN = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -81,7 +85,7 @@
             // SampleLabel
             // 
             this.SampleLabel.AutoSize = true;
-            this.SampleLabel.Location = new System.Drawing.Point(374, 120);
+            this.SampleLabel.Location = new System.Drawing.Point(400, 120);
             this.SampleLabel.Name = "SampleLabel";
             this.SampleLabel.Size = new System.Drawing.Size(174, 25);
             this.SampleLabel.TabIndex = 1;
@@ -89,9 +93,9 @@
             // 
             // EditLabelBTN
             // 
-            this.EditLabelBTN.Location = new System.Drawing.Point(133, 120);
+            this.EditLabelBTN.Location = new System.Drawing.Point(100, 120);
             this.EditLabelBTN.Name = "EditLabelBTN";
-            this.EditLabelBTN.Size = new System.Drawing.Size(206, 45);
+            this.EditLabelBTN.Size = new System.Drawing.Size(250, 45);
             this.EditLabelBTN.TabIndex = 0;
             this.EditLabelBTN.Text = "Изменить надпись";
             this.EditLabelBTN.UseVisualStyleBackColor = true;
@@ -101,7 +105,7 @@
             // 
             this.tabPage2.Controls.Add(this.SamplePanel);
             this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.EditPanelBTN);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -112,31 +116,35 @@
             // 
             // SamplePanel
             // 
-            this.SamplePanel.Location = new System.Drawing.Point(383, 106);
+            this.SamplePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.SamplePanel.Location = new System.Drawing.Point(405, 148);
             this.SamplePanel.Name = "SamplePanel";
-            this.SamplePanel.Size = new System.Drawing.Size(393, 270);
+            this.SamplePanel.Size = new System.Drawing.Size(371, 228);
             this.SamplePanel.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(378, 78);
+            this.label3.Location = new System.Drawing.Point(400, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Образец панели";
             // 
-            // button2
+            // EditPanelBTN
             // 
-            this.button2.Location = new System.Drawing.Point(143, 106);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(206, 45);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Изменить панель";
-            this.button2.UseVisualStyleBackColor = true;
+            this.EditPanelBTN.Location = new System.Drawing.Point(100, 120);
+            this.EditPanelBTN.Name = "EditPanelBTN";
+            this.EditPanelBTN.Size = new System.Drawing.Size(250, 45);
+            this.EditPanelBTN.TabIndex = 2;
+            this.EditPanelBTN.Text = "Изменить панель";
+            this.EditPanelBTN.UseVisualStyleBackColor = true;
+            this.EditPanelBTN.Click += new System.EventHandler(this.EditPanelBTN_Click);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.EditTextBoxBTN);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(900, 446);
@@ -157,6 +165,26 @@
             // 
             this.fontDialog1.ShowColor = true;
             // 
+            // EditTextBoxBTN
+            // 
+            this.EditTextBoxBTN.Location = new System.Drawing.Point(100, 120);
+            this.EditTextBoxBTN.Name = "EditTextBoxBTN";
+            this.EditTextBoxBTN.Size = new System.Drawing.Size(250, 45);
+            this.EditTextBoxBTN.TabIndex = 0;
+            this.EditTextBoxBTN.Text = "Изменить ТехстБокс";
+            this.EditTextBoxBTN.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.textBox1.Location = new System.Drawing.Point(400, 120);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(248, 30);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.Text = "Образец ТекстБокса";
+            // 
             // DisignUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -172,6 +200,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,9 +217,12 @@
         private System.Windows.Forms.Button EditLabelBTN;
         private System.Windows.Forms.Panel SamplePanel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button EditPanelBTN;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button EditTextBoxBTN;
     }
 }
