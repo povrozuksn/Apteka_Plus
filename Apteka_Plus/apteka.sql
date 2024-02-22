@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 06 2024 г., 18:06
+-- Время создания: Фев 22 2024 г., 19:13
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -19,6 +19,33 @@ SET time_zone = "+00:00";
 --
 -- База данных: `apteka`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `defaultdisign`
+--
+
+CREATE TABLE IF NOT EXISTS `defaultdisign` (
+  `type` varchar(200) NOT NULL,
+  `parametr` varchar(100) NOT NULL,
+  `value` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `defaultdisign`
+--
+
+INSERT INTO `defaultdisign` (`type`, `parametr`, `value`) VALUES
+('System.Windows.Forms.Label', 'FONT', 'Comic Sans MS;14,25'),
+('System.Windows.Forms.Label', 'FONT_COLOR', '-65536'),
+('System.Windows.Forms.TextBox', 'FONT', 'Times New Roman;14,25'),
+('System.Windows.Forms.TextBox', 'FORECOLOR', '-8388480'),
+('System.Windows.Forms.TextBox', 'BACKCOLOR', '-6817285'),
+('System.Windows.Forms.Button', 'FONT', 'Cambria;14,25'),
+('System.Windows.Forms.Button', 'FORECOLOR', '-16776961'),
+('System.Windows.Forms.Button', 'BACKCOLOR', '-25089'),
+('System.Windows.Forms.Panel', 'PANEL_COLOR', '-90');
 
 -- --------------------------------------------------------
 
