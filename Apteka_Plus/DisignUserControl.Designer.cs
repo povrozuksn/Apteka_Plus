@@ -44,10 +44,14 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.EditButtonBTN2 = new System.Windows.Forms.Button();
+            this.EditButtonBTN1 = new System.Windows.Forms.Button();
+            this.SamplButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -187,6 +191,9 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.SamplButton);
+            this.tabPage4.Controls.Add(this.EditButtonBTN2);
+            this.tabPage4.Controls.Add(this.EditButtonBTN1);
             this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(900, 446);
@@ -197,6 +204,35 @@
             // fontDialog1
             // 
             this.fontDialog1.ShowColor = true;
+            // 
+            // EditButtonBTN2
+            // 
+            this.EditButtonBTN2.Location = new System.Drawing.Point(100, 180);
+            this.EditButtonBTN2.Name = "EditButtonBTN2";
+            this.EditButtonBTN2.Size = new System.Drawing.Size(250, 45);
+            this.EditButtonBTN2.TabIndex = 8;
+            this.EditButtonBTN2.Text = "Изменить Цвет";
+            this.EditButtonBTN2.UseVisualStyleBackColor = true;
+            this.EditButtonBTN2.Click += new System.EventHandler(this.EditButtonBTN2_Click);
+            // 
+            // EditButtonBTN1
+            // 
+            this.EditButtonBTN1.Location = new System.Drawing.Point(100, 120);
+            this.EditButtonBTN1.Name = "EditButtonBTN1";
+            this.EditButtonBTN1.Size = new System.Drawing.Size(250, 45);
+            this.EditButtonBTN1.TabIndex = 7;
+            this.EditButtonBTN1.Text = "Изменить Текст";
+            this.EditButtonBTN1.UseVisualStyleBackColor = true;
+            this.EditButtonBTN1.Click += new System.EventHandler(this.EditButtonBTN1_Click);
+            // 
+            // SamplButton
+            // 
+            this.SamplButton.Location = new System.Drawing.Point(429, 121);
+            this.SamplButton.Name = "SamplButton";
+            this.SamplButton.Size = new System.Drawing.Size(222, 42);
+            this.SamplButton.TabIndex = 9;
+            this.SamplButton.Text = "Образец кнопки";
+            this.SamplButton.UseVisualStyleBackColor = true;
             // 
             // DisignUserControl
             // 
@@ -215,6 +251,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +275,8 @@
         private System.Windows.Forms.TextBox SamplTextBox;
         private System.Windows.Forms.Button EditTextBoxBTN1;
         private System.Windows.Forms.Button EditTextBoxBTN2;
+        private System.Windows.Forms.Button SamplButton;
+        private System.Windows.Forms.Button EditButtonBTN2;
+        private System.Windows.Forms.Button EditButtonBTN1;
     }
 }

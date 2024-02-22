@@ -27,6 +27,11 @@ namespace Apteka_Plus
         public static Color TEXTBOX_BACKCOLOR;
         #endregion
 
+        #region Параметры КНОПКИ
+        public static Font BUTTON_FONT;
+        public static Color BUTTON_FORECOLOR;
+        public static Color BUTTON_BACKCOLOR;
+        #endregion
 
 
         public DisignUserControl()
@@ -81,6 +86,41 @@ namespace Apteka_Plus
             }
             catch (Exception) { }
             #endregion
+
+            #region Чтение параметров ТЕКСТБОКСА
+            try
+            {
+                string font = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.TextBox' AND parametr = 'FONT'")[0];
+                string[] parts = font.Split(new char[] { ';' });
+                TEXTBOX_FONT = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
+
+                string color = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.TextBox' AND parametr = 'FORECOLOR'")[0];
+                TEXTBOX_FORECOLOR = Color.FromArgb(Convert.ToInt32(color));
+
+                string bgcolor = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.TextBox' AND parametr = 'BACKCOLOR'")[0];
+                TEXTBOX_BACKCOLOR = Color.FromArgb(Convert.ToInt32(bgcolor));
+
+            }
+            catch (Exception) { }
+            #endregion
+
+            #region Чтение параметров КНОПКИ
+            try
+            {
+                string font = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Button' AND parametr = 'FONT'")[0];
+                string[] parts = font.Split(new char[] { ';' });
+                BUTTON_FONT = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
+
+                string color = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Button' AND parametr = 'FORECOLOR'")[0];
+                BUTTON_FORECOLOR = Color.FromArgb(Convert.ToInt32(color));
+
+                string bgcolor = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Button' AND parametr = 'BACKCOLOR'")[0];
+                BUTTON_BACKCOLOR = Color.FromArgb(Convert.ToInt32(bgcolor));
+
+            }
+            catch (Exception) { }
+            #endregion
+
         }
 
         public static void ApplyDisign(Control Form)
@@ -109,6 +149,33 @@ namespace Apteka_Plus
                     ApplyDisign(ctrl);
                 }
                 #endregion
+
+                #region Примение параметров ТЕКСТБОКСА
+                if (ctrl is TextBox)
+                {
+                    ctrl.Font = TEXTBOX_FONT;
+                    ctrl.ForeColor = TEXTBOX_FORECOLOR;
+                    ctrl.BackColor = TEXTBOX_BACKCOLOR;
+                }
+                else
+                {
+                    ApplyDisign(ctrl);
+                }
+                #endregion
+
+                #region Примение параметров КНОПКИ
+                if (ctrl is Button)
+                {
+                    ctrl.Font = BUTTON_FONT;
+                    ctrl.ForeColor = BUTTON_FORECOLOR;
+                    ctrl.BackColor = BUTTON_BACKCOLOR;
+                }
+                else
+                {
+                    ApplyDisign(ctrl);
+                }
+                #endregion
+
             }
         }
 
@@ -132,6 +199,7 @@ namespace Apteka_Plus
         }
         #endregion
 
+        #region Выбор и сохранение параметров ТЕКСТБОКСА
         private void EditTextBoxBTN1_Click(object sender, EventArgs e)
         {
             fontDialog1.Font = TEXTBOX_FONT;
@@ -144,10 +212,16 @@ namespace Apteka_Plus
 
                 SamplTextBox.Font = TEXTBOX_FONT;
                 SamplTextBox.ForeColor = TEXTBOX_FORECOLOR;
+
+                SQLClass.MyUpDate("DELETE FROM defaultdisign WHERE type = '" + SamplTextBox.GetType() + "' AND parametr = 'FONT'");
+                SQLClass.MyUpDate("DELETE FROM defaultdisign WHERE type = '" + SamplTextBox.GetType() + "' AND parametr = 'FORECOLOR'");
+
+                SQLClass.MyUpDate("INSERT INTO defaultdisign (type, parametr, value) VALUE ('" + SamplTextBox.GetType() + "', 'FONT', '" + TEXTBOX_FONT.Name + ";" + TEXTBOX_FONT.Size.ToString() + "')");
+                SQLClass.MyUpDate("INSERT INTO defaultdisign (type, parametr, value) VALUE ('" + SamplTextBox.GetType() + "', 'FORECOLOR', '" + TEXTBOX_FORECOLOR.ToArgb() + "')");
             }
 
         }
-
+        
         private void EditTextBoxBTN2_Click(object sender, EventArgs e)
         {
             colorDialog1.Color = TEXTBOX_BACKCOLOR;
@@ -157,7 +231,54 @@ namespace Apteka_Plus
                 TEXTBOX_BACKCOLOR = colorDialog1.Color;
 
                 SamplTextBox.BackColor = TEXTBOX_BACKCOLOR;
+
+
+                SQLClass.MyUpDate("DELETE FROM defaultdisign WHERE type = '" + SamplTextBox.GetType() + "' AND parametr = 'BACKCOLOR'");
+
+                SQLClass.MyUpDate("INSERT INTO defaultdisign (type, parametr, value) VALUE ('" + SamplTextBox.GetType() + "', 'BACKCOLOR', '" + TEXTBOX_BACKCOLOR.ToArgb() + "')");
             }
         }
+        #endregion
+
+        #region Выбор и сохранение параметров КНОПКИ
+        private void EditButtonBTN1_Click(object sender, EventArgs e)
+        {
+            fontDialog1.Font = BUTTON_FONT;
+            fontDialog1.Color = BUTTON_FORECOLOR;
+
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                BUTTON_FONT = fontDialog1.Font;
+                BUTTON_FORECOLOR = fontDialog1.Color;
+
+                SamplButton.Font = BUTTON_FONT;
+                SamplButton.ForeColor = BUTTON_FORECOLOR;
+
+                SQLClass.MyUpDate("DELETE FROM defaultdisign WHERE type = '" + SamplButton.GetType() + "' AND parametr = 'FONT'");
+                SQLClass.MyUpDate("DELETE FROM defaultdisign WHERE type = '" + SamplButton.GetType() + "' AND parametr = 'FORECOLOR'");
+
+                SQLClass.MyUpDate("INSERT INTO defaultdisign (type, parametr, value) VALUE ('" + SamplButton.GetType() + "', 'FONT', '" + BUTTON_FONT.Name + ";" + BUTTON_FONT.Size.ToString() + "')");
+                SQLClass.MyUpDate("INSERT INTO defaultdisign (type, parametr, value) VALUE ('" + SamplButton.GetType() + "', 'FORECOLOR', '" + BUTTON_FORECOLOR.ToArgb() + "')");
+            }
+
+        }
+
+        private void EditButtonBTN2_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = BUTTON_BACKCOLOR;
+
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                BUTTON_BACKCOLOR = colorDialog1.Color;
+
+                SamplButton.BackColor = BUTTON_BACKCOLOR;
+
+
+                SQLClass.MyUpDate("DELETE FROM defaultdisign WHERE type = '" + SamplButton.GetType() + "' AND parametr = 'BACKCOLOR'");
+
+                SQLClass.MyUpDate("INSERT INTO defaultdisign (type, parametr, value) VALUE ('" + SamplButton.GetType() + "', 'BACKCOLOR', '" + BUTTON_BACKCOLOR.ToArgb() + "')");
+            }
+        }
+        #endregion
     }
 }
