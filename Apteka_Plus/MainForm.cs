@@ -179,6 +179,11 @@ namespace Apteka_Plus
                 HelloLabel.Text = "";
                 isAdmin = 0;
 
+                MainUserControl mainUC = new MainUserControl();
+                mainUC.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(mainUC);
+
             }
             else
             {
