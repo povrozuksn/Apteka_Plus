@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.AddClassifPanel = new System.Windows.Forms.Panel();
+            this.NameClassifCB = new System.Windows.Forms.ComboBox();
+            this.NameAptekaCB = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.AddClassifButton = new System.Windows.Forms.Button();
             this.ClassifPictureBox = new System.Windows.Forms.PictureBox();
@@ -39,8 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.NameAptekaCB = new System.Windows.Forms.ComboBox();
-            this.NameClassifCB = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.AddClassifPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClassifPictureBox)).BeginInit();
@@ -62,6 +62,28 @@
             this.AddClassifPanel.Name = "AddClassifPanel";
             this.AddClassifPanel.Size = new System.Drawing.Size(874, 298);
             this.AddClassifPanel.TabIndex = 5;
+            // 
+            // NameClassifCB
+            // 
+            this.NameClassifCB.FormattingEnabled = true;
+            this.NameClassifCB.Items.AddRange(new object[] {
+            "Психотропные медикаменты",
+            "Препараты местноанестезирующего действия",
+            "Моче-желчегонные препараты",
+            "Средства для терапии секретори",
+            "Антибиотики антисептикики"});
+            this.NameClassifCB.Location = new System.Drawing.Point(39, 76);
+            this.NameClassifCB.Name = "NameClassifCB";
+            this.NameClassifCB.Size = new System.Drawing.Size(433, 33);
+            this.NameClassifCB.TabIndex = 16;
+            // 
+            // NameAptekaCB
+            // 
+            this.NameAptekaCB.FormattingEnabled = true;
+            this.NameAptekaCB.Location = new System.Drawing.Point(39, 155);
+            this.NameAptekaCB.Name = "NameAptekaCB";
+            this.NameAptekaCB.Size = new System.Drawing.Size(252, 33);
+            this.NameAptekaCB.TabIndex = 15;
             // 
             // label7
             // 
@@ -149,7 +171,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(302, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Управление клвссификатором";
+            this.label1.Text = "Управление классификатором";
             // 
             // label13
             // 
@@ -159,28 +181,6 @@
             this.label13.Size = new System.Drawing.Size(261, 25);
             this.label13.TabIndex = 0;
             this.label13.Text = "Название классификатора";
-            // 
-            // NameAptekaCB
-            // 
-            this.NameAptekaCB.FormattingEnabled = true;
-            this.NameAptekaCB.Location = new System.Drawing.Point(39, 155);
-            this.NameAptekaCB.Name = "NameAptekaCB";
-            this.NameAptekaCB.Size = new System.Drawing.Size(252, 33);
-            this.NameAptekaCB.TabIndex = 15;
-            // 
-            // NameClassifCB
-            // 
-            this.NameClassifCB.FormattingEnabled = true;
-            this.NameClassifCB.Items.AddRange(new object[] {
-            "Психотропные медикаменты",
-            "Препараты местноанестезирующего действия",
-            "Моче-желчегонные препараты",
-            "Средства для терапии секретори",
-            "Антибиотики антисептикики"});
-            this.NameClassifCB.Location = new System.Drawing.Point(39, 76);
-            this.NameClassifCB.Name = "NameClassifCB";
-            this.NameClassifCB.Size = new System.Drawing.Size(433, 33);
-            this.NameClassifCB.TabIndex = 16;
             // 
             // openFileDialog1
             // 

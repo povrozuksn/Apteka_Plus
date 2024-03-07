@@ -28,7 +28,6 @@ namespace Apteka_Plus
             InfoClassifPanel.Controls.Add(label2);
 
             List<string> apteks = SQLClass.MySelect("SELECT id, name FROM level1");
-
             NameAptekaCB.Items.Clear();
             for (int i = 0; i < apteks.Count; i += 2)
             {
@@ -60,13 +59,31 @@ namespace Apteka_Plus
                 btn.Location = new Point(700, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Arial Narrow", 12);
-                //btn.Click += new EventHandler(DeleteClassifClick);
+                btn.Click += new EventHandler(DeleteClassifClick);
                 btn.Text = "Удалить";
                 InfoClassifPanel.Controls.Add(btn);
 
                 y += 35;
             }
         }
+
+        private void DeleteClassifClick(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int y = btn.Location.Y;
+
+            foreach (Control control in InfoClassifPanel.Controls)
+            {
+                if (control.Location == new Point(20, y))
+                {
+                    SQLClass.MyUpDate("DELETE FROM level2 WHERE id = '" + control.Tag + "'");
+                    SQLClass.MyUpDate("DELETE FROM level3 WHERE id_class = '" + control.Tag + "'");
+                    MessageBox.Show("Удаление успешно");
+                    AdminKlassUC_Load(sender, e);
+                }
+            }
+        }
+
 
         private void AddClassifButton_Click(object sender, EventArgs e)
         {
