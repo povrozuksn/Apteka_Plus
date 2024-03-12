@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,38 @@ namespace Apteka_Plus
 
         private void AddMedicButton_Click(object sender, EventArgs e)
         {
+            string id_classif = "";
+            string id_apteka = "";
+            string[] text = NameClassifCB.Text.Split(new string[] { ". " }, StringSplitOptions.None);
+            id_classif = text[0];
+            id_apteka = text[2];
+
+
+            if (NameMedicTB.Text != "" && NameClassifCB.Text != "")
+            {
+                SQLClass.MyUpDate("INSERT INTO level3 (name, id_apteka, id_class, pic) VALUES ('" + NameMedicTB.Text + "','" + id_apteka + "','" + NameClassifCB.Text + "', '" + adress + "')");
+                MessageBox.Show("Сохранено");
+                AdminMedicUC_Load(sender, e);
+                NameMedicTB.Text = "";
+                NameClassifCB.Text = "";
+                MedicPictureBox.Image = null;
+            }
+            else
+            {
+                MessageBox.Show("Заполните обязательные поля");
+            }
+
+        }
+
+        string adress;
+        private void MedicPictureBox_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                adress = openFileDialog1.FileName;
+                MedicPictureBox.Load(adress);
+                adress = Path.GetFileName(adress);
+            }
 
         }
 
@@ -41,7 +74,7 @@ namespace Apteka_Plus
             for (int i = 0; i < classif.Count; i += 3)
             {
                 List<string> apteks = SQLClass.MySelect("SELECT id, name FROM level1 WHERE id = '" + classif[i + 2] + "' ");
-                NameClassifCB.Items.Add(classif[i] + ". " + classif[i + 1] + ". " + apteks[1]);
+                NameClassifCB.Items.Add(classif[i] + ". " + classif[i + 1] + ". " + apteks[0] + ". " + apteks[1]);
             }
 
             List<string> Medic = SQLClass.MySelect("SELECT id, name, id_apteka, id_class FROM level3");

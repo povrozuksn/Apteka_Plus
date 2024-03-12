@@ -30,18 +30,19 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.InfoMedicPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.AddMedicPanel = new System.Windows.Forms.Panel();
+            this.NameMedicTB = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.NameClassifCB = new System.Windows.Forms.ComboBox();
             this.AddMedicButton = new System.Windows.Forms.Button();
             this.MedicPictureBox = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.NameMedicTB = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.InfoMedicPanel.SuspendLayout();
             this.AddMedicPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MedicPictureBox)).BeginInit();
@@ -68,6 +69,15 @@
             this.InfoMedicPanel.Name = "InfoMedicPanel";
             this.InfoMedicPanel.Size = new System.Drawing.Size(867, 225);
             this.InfoMedicPanel.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(237, 25);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Название медикомента";
             // 
             // label2
             // 
@@ -102,6 +112,22 @@
             this.AddMedicPanel.Name = "AddMedicPanel";
             this.AddMedicPanel.Size = new System.Drawing.Size(867, 314);
             this.AddMedicPanel.TabIndex = 6;
+            // 
+            // NameMedicTB
+            // 
+            this.NameMedicTB.Location = new System.Drawing.Point(8, 111);
+            this.NameMedicTB.Name = "NameMedicTB";
+            this.NameMedicTB.Size = new System.Drawing.Size(351, 30);
+            this.NameMedicTB.TabIndex = 18;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 147);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(250, 25);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Классификатор + Аптека";
             // 
             // NameClassifCB
             // 
@@ -165,30 +191,9 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Добавление медикомента";
             // 
-            // label3
+            // openFileDialog1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(237, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Название медикомента";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 147);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(250, 25);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Классификатор + Аптека";
-            // 
-            // NameMedicTB
-            // 
-            this.NameMedicTB.Location = new System.Drawing.Point(8, 111);
-            this.NameMedicTB.Name = "NameMedicTB";
-            this.NameMedicTB.Size = new System.Drawing.Size(351, 30);
-            this.NameMedicTB.TabIndex = 18;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // AdminMedicUC
             // 
@@ -226,5 +231,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

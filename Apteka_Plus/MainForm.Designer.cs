@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Аптеки");
             this.AuthPanel = new System.Windows.Forms.Panel();
+            this.DisignButton = new System.Windows.Forms.Button();
             this.RegButton = new System.Windows.Forms.Button();
             this.AdminFormButton = new System.Windows.Forms.Button();
             this.AuthButton = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.DisignButton = new System.Windows.Forms.Button();
             this.AuthPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,14 +67,25 @@
             this.AuthPanel.Size = new System.Drawing.Size(1286, 61);
             this.AuthPanel.TabIndex = 0;
             // 
+            // DisignButton
+            // 
+            this.DisignButton.Location = new System.Drawing.Point(1118, 20);
+            this.DisignButton.Name = "DisignButton";
+            this.DisignButton.Size = new System.Drawing.Size(133, 33);
+            this.DisignButton.TabIndex = 8;
+            this.DisignButton.Text = "Дизайн";
+            this.DisignButton.UseVisualStyleBackColor = true;
+            this.DisignButton.Click += new System.EventHandler(this.DisignButton_Click);
+            // 
             // RegButton
             // 
+            this.RegButton.BackColor = System.Drawing.Color.Red;
             this.RegButton.Location = new System.Drawing.Point(777, 20);
             this.RegButton.Name = "RegButton";
             this.RegButton.Size = new System.Drawing.Size(147, 33);
             this.RegButton.TabIndex = 7;
             this.RegButton.Text = "Регистрация";
-            this.RegButton.UseVisualStyleBackColor = true;
+            this.RegButton.UseVisualStyleBackColor = false;
             this.RegButton.Click += new System.EventHandler(this.RegButton_Click);
             // 
             // AdminFormButton
@@ -143,10 +154,11 @@
             // 
             this.InfoPanel.BackColor = System.Drawing.Color.White;
             this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InfoPanel.Location = new System.Drawing.Point(429, 3);
+            this.InfoPanel.Location = new System.Drawing.Point(338, 3);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(854, 506);
+            this.InfoPanel.Size = new System.Drawing.Size(945, 506);
             this.InfoPanel.TabIndex = 1;
+            this.InfoPanel.Resize += new System.EventHandler(this.InfoPanel_Resize);
             // 
             // CopyRightPanel
             // 
@@ -160,8 +172,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.18223F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.81777F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.04977F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.95023F));
             this.tableLayoutPanel1.Controls.Add(this.InfoPanel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.treeView1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -181,7 +193,7 @@
             treeNode2.Text = "Аптеки";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2});
-            this.treeView1.Size = new System.Drawing.Size(420, 506);
+            this.treeView1.Size = new System.Drawing.Size(329, 506);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -189,16 +201,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // DisignButton
-            // 
-            this.DisignButton.Location = new System.Drawing.Point(1118, 20);
-            this.DisignButton.Name = "DisignButton";
-            this.DisignButton.Size = new System.Drawing.Size(133, 33);
-            this.DisignButton.TabIndex = 8;
-            this.DisignButton.Text = "Дизайн";
-            this.DisignButton.UseVisualStyleBackColor = true;
-            this.DisignButton.Click += new System.EventHandler(this.DisignButton_Click);
             // 
             // MainForm
             // 

@@ -19,10 +19,11 @@ namespace Apteka_Plus
             List<string> apteks = SQLClass.MySelect("SELECT id, name, pic FROM level1");
 
             int x = 10;
+            int y = 30;
             for (int i = 0; i < apteks.Count; i += 3)
             {
                 Label lbl = new Label();
-                lbl.Location = new Point(x, 30);
+                lbl.Location = new Point(x, y);
                 lbl.Size = new Size(200, 30);
                 lbl.Font = new Font("Arial Narrow", 13);
                 lbl.Text = apteks[i + 1];
@@ -36,7 +37,7 @@ namespace Apteka_Plus
                     pb.Load("../../Pictures/" + apteks[i + 2]);
                 }
                 catch (Exception) { }
-                pb.Location = new Point(x, 70);
+                pb.Location = new Point(x, y+40);
                 pb.Size = new Size(200, 130);
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
                 pb.Tag = apteks[i];
@@ -44,6 +45,11 @@ namespace Apteka_Plus
                 Controls.Add(pb);
 
                 x += 210;
+                if (x > this.Width-200)
+                {
+                    x = 10;
+                    y += 180;
+                }
             }
 
             DisignUserControl.ApplyDisign(this);
@@ -55,7 +61,7 @@ namespace Apteka_Plus
             AptekaUserControl aptekaUC = new AptekaUserControl(pb.Tag.ToString());
             Controls.Clear();
             Controls.Add(aptekaUC);
-            aptekaUC.Dock = DockStyle.None;
+            aptekaUC.Dock = DockStyle.Fill;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -64,7 +70,8 @@ namespace Apteka_Plus
             AptekaUserControl aptekaUC = new AptekaUserControl(lbl.Tag.ToString());
             Controls.Clear();
             Controls.Add(aptekaUC);
-            aptekaUC.Dock = DockStyle.None;
+            aptekaUC.Dock = DockStyle.Fill;
         }
+
     }
 }

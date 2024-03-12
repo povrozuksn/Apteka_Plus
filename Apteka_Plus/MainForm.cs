@@ -269,5 +269,13 @@ namespace Apteka_Plus
             InfoPanel.Controls.Clear();
             InfoPanel.Controls.Add(disignUC);
         }
+
+        private void InfoPanel_Resize(object sender, EventArgs e)
+        {
+            MainUserControl mainUC = new MainUserControl();
+            mainUC.Dock = DockStyle.Fill;
+            InfoPanel.Controls.Clear();
+            InfoPanel.Controls.Add(mainUC);
+        }
     }
 }
