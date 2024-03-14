@@ -63,10 +63,10 @@ namespace Apteka_Plus
         {
             InfoMedicPanel.Controls.Clear();
             InfoMedicPanel.Controls.Add(label1);
+            label1.Visible = true;
             InfoMedicPanel.Controls.Add(label3);
             InfoMedicPanel.Controls.Add(label13);
             InfoMedicPanel.Controls.Add(label2);
-
             
             List<string> classif = SQLClass.MySelect("SELECT id, name, id_apteka FROM level2");
 
@@ -109,12 +109,32 @@ namespace Apteka_Plus
                 btn.Location = new Point(750, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Arial Narrow", 12);
-                //btn.Click += new EventHandler(DeleteMedicClick);
+                btn.Click += new EventHandler(DeleteMedicClick);
                 btn.Text = "Удалить";
                 InfoMedicPanel.Controls.Add(btn);
 
                 y += 35;
             }
         }
+
+
+        private void DeleteMedicClick(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int y = btn.Location.Y;
+
+            foreach (Control control in InfoMedicPanel.Controls)
+            {
+                if (control.Location == new Point(20, y))
+                {
+                    SQLClass.MyUpDate("DELETE FROM level3 WHERE id = '" + control.Tag + "'");
+                    MessageBox.Show("Удаление успешно");
+                }
+            }
+            AdminMedicUC_Load(sender, e);
+        }
+
+
+
     }
 }

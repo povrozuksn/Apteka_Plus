@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Аптеки");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Аптеки");
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.DisignButton = new System.Windows.Forms.Button();
             this.RegButton = new System.Windows.Forms.Button();
@@ -79,7 +79,7 @@
             // 
             // RegButton
             // 
-            this.RegButton.BackColor = System.Drawing.Color.Red;
+            this.RegButton.BackColor = System.Drawing.SystemColors.Control;
             this.RegButton.Location = new System.Drawing.Point(777, 20);
             this.RegButton.Name = "RegButton";
             this.RegButton.Size = new System.Drawing.Size(147, 33);
@@ -189,10 +189,10 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "Узел0";
-            treeNode2.Text = "Аптеки";
+            treeNode3.Name = "Узел0";
+            treeNode3.Text = "Аптеки";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(329, 506);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
