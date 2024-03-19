@@ -124,6 +124,12 @@
       <DependentUpon>RegForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLClass.cs" />
+    <Compile Include="UniqueDiesignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UniqueDiesignForm.Designer.cs">
+      <DependentUpon>UniqueDiesignForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminApteksUC.resx">
       <DependentUpon>AdminApteksUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +174,9 @@
     </Compile>
     <EmbeddedResource Include="RegForm.resx">
       <DependentUpon>RegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UniqueDiesignForm.resx">
+      <DependentUpon>UniqueDiesignForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

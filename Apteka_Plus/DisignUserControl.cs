@@ -12,6 +12,8 @@ namespace Apteka_Plus
 {
     public partial class DisignUserControl : UserControl
     {
+        public static ContextMenuStrip BUTTON_ContextMenu;
+
         #region Параметры НАДПИСИ
         public static Font LABEL_FONT;
         public static Color LABEL_COLOR;
@@ -280,5 +282,20 @@ namespace Apteka_Plus
             }
         }
         #endregion
+
+        public static void ApplyMenu(Control Form)
+        {
+            foreach(Control ctrl in Form.Controls)
+            {
+                if (ctrl is Button && Convert.ToBoolean(MainForm.isAdmin))
+                {
+                    ctrl.ContextMenuStrip = BUTTON_ContextMenu;
+                }
+                else
+                {
+                    ApplyMenu(ctrl);
+                }
+            }
+        }
     }
 }
