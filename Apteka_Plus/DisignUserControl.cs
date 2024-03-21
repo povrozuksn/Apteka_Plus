@@ -125,6 +125,26 @@ namespace Apteka_Plus
 
         }
 
+        public static void ReadUniqueDisign(Button btn)
+        {
+            #region Чтение параметров выбранной КНОПКИ
+            try
+            {
+                string font = SQLClass.MySelect("SELECT value FROM uniquedisign WHERE type = 'System.Windows.Forms.Button' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "' AND parameter = 'FONT'")[0];
+                string[] parts = font.Split(new char[] { ';' });
+                btn.Font = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
+
+                string color = SQLClass.MySelect("SELECT value FROM uniquedisign WHERE type = 'System.Windows.Forms.Button' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "'  AND parameter = 'FONT_COLOR'")[0];
+                btn.ForeColor = Color.FromArgb(Convert.ToInt32(color));
+
+                //string bgcolor = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Button' AND parametr = 'BACKCOLOR'")[0];
+                //BUTTON_BACKCOLOR = Color.FromArgb(Convert.ToInt32(bgcolor));
+
+            }
+            catch (Exception) { }
+            #endregion
+        }
+
         public static void ApplyDisign(Control Form)
         {
             foreach (Control ctrl in Form.Controls)
@@ -171,6 +191,7 @@ namespace Apteka_Plus
                     ctrl.Font = BUTTON_FONT;
                     ctrl.ForeColor = BUTTON_FORECOLOR;
                     ctrl.BackColor = BUTTON_BACKCOLOR;
+                    ReadUniqueDisign(ctrl as Button);
                 }
                 else
                 {

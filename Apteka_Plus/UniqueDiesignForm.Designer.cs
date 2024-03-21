@@ -45,6 +45,7 @@
             this.FontBTN.TabIndex = 0;
             this.FontBTN.Text = "Изменить текст";
             this.FontBTN.UseVisualStyleBackColor = true;
+            this.FontBTN.Click += new System.EventHandler(this.FontBTN_Click);
             // 
             // ColorBTN
             // 
@@ -74,6 +75,10 @@
             this.label1.Size = new System.Drawing.Size(257, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Дизайн выбранной кнопки";
+            // 
+            // fontDialog1
+            // 
+            this.fontDialog1.ShowColor = true;
             // 
             // UniqueDiesignForm
             // 

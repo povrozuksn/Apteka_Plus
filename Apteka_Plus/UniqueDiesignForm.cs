@@ -24,5 +24,25 @@ namespace Apteka_Plus
             SamplBTN.BackColor = btn.BackColor;
             SamplBTN.Size = btn.Size;
         }
+
+        private void FontBTN_Click(object sender, EventArgs e)
+        {
+            fontDialog1.Font = SamplBTN.Font;
+            fontDialog1.Color = SamplBTN.ForeColor;
+
+            if(fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                SamplBTN.Font = fontDialog1.Font;
+                SamplBTN.ForeColor = fontDialog1.Color;
+
+
+                SQLClass.MyUpDate("DELETE FROM uniquedisign WHERE type = '" + SamplBTN.GetType() + "' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "' AND parameter = 'FONT'");
+                SQLClass.MyUpDate("DELETE FROM uniquedisign WHERE type = '" + SamplBTN.GetType() + "' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "' AND parameter = 'FONT_COLOR'");
+
+                SQLClass.MyUpDate("INSERT INTO uniquedisign (type, name, form, parameter, value) VALUE ('" + SamplBTN.GetType() + "', '" + btn.Name + "', '" + btn.FindForm().Name + "', 'FONT', '" + SamplBTN.Font.Name + ";" + SamplBTN.Font.Size.ToString() + "')");
+                SQLClass.MyUpDate("INSERT INTO uniquedisign (type, name, form, parameter, value) VALUE ('" + SamplBTN.GetType() + "', '" + btn.Name + "', '" + btn.FindForm().Name + "', 'FONT_COLOR', '" + SamplBTN.ForeColor.ToArgb() + "')");
+
+            }
+        }
     }
 }
