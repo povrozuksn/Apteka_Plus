@@ -237,7 +237,7 @@ namespace Apteka_Plus
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            DisignUserControl.ApplyDisign(this);
+            //DisignUserControl.ApplyDisign(this);
 
             if (Convert.ToBoolean(isAdmin) && treeView1.Nodes.Count == 1)
             {

@@ -137,8 +137,12 @@ namespace Apteka_Plus
                 string color = SQLClass.MySelect("SELECT value FROM uniquedisign WHERE type = 'System.Windows.Forms.Button' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "'  AND parameter = 'FONT_COLOR'")[0];
                 btn.ForeColor = Color.FromArgb(Convert.ToInt32(color));
 
-                //string bgcolor = SQLClass.MySelect("SELECT value FROM defaultdisign WHERE type = 'System.Windows.Forms.Button' AND parametr = 'BACKCOLOR'")[0];
-                //BUTTON_BACKCOLOR = Color.FromArgb(Convert.ToInt32(bgcolor));
+                string bgcolor = SQLClass.MySelect("SELECT value FROM uniquedisign WHERE type = 'System.Windows.Forms.Button' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "' AND parameter = 'BACKCOLOR'")[0];
+                btn.BackColor = Color.FromArgb(Convert.ToInt32(bgcolor));
+
+                string location = SQLClass.MySelect("SELECT value FROM uniquedisign WHERE type = 'System.Windows.Forms.Button' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "' AND parameter = 'LOCATION'")[0];
+                string[] parts1 = location.Split(new string[] { ", " }, StringSplitOptions.None);
+                btn.Location = new Point(Convert.ToInt32(parts1[0]), Convert.ToInt32(parts1[1]));
 
             }
             catch (Exception) { }
