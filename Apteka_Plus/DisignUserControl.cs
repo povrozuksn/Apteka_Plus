@@ -133,17 +133,36 @@ namespace Apteka_Plus
                 string font = SQLClass.MySelect("SELECT value FROM uniquedisign WHERE type = 'System.Windows.Forms.Button' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "' AND parameter = 'FONT'")[0];
                 string[] parts = font.Split(new char[] { ';' });
                 btn.Font = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
+            }
+            catch (Exception) { }
 
+            try 
+            {
                 string color = SQLClass.MySelect("SELECT value FROM uniquedisign WHERE type = 'System.Windows.Forms.Button' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "'  AND parameter = 'FONT_COLOR'")[0];
                 btn.ForeColor = Color.FromArgb(Convert.ToInt32(color));
-
+            }
+            catch (Exception) { }
+           
+            try
+            {
                 string bgcolor = SQLClass.MySelect("SELECT value FROM uniquedisign WHERE type = 'System.Windows.Forms.Button' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "' AND parameter = 'BACKCOLOR'")[0];
                 btn.BackColor = Color.FromArgb(Convert.ToInt32(bgcolor));
-
+            }
+            catch (Exception) { }
+            
+            try
+            {
                 string location = SQLClass.MySelect("SELECT value FROM uniquedisign WHERE type = 'System.Windows.Forms.Button' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "' AND parameter = 'LOCATION'")[0];
                 string[] parts1 = location.Split(new string[] { ", " }, StringSplitOptions.None);
                 btn.Location = new Point(Convert.ToInt32(parts1[0]), Convert.ToInt32(parts1[1]));
+            }
+            catch (Exception) { }
 
+            try
+            {
+                string size = SQLClass.MySelect("SELECT value FROM uniquedisign WHERE type = 'System.Windows.Forms.Button' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "' AND parameter = 'SIZE'")[0];
+                string[] parts1 = size.Split(new string[] { ", " }, StringSplitOptions.None);
+                btn.Size = new Size(Convert.ToInt32(parts1[0]), Convert.ToInt32(parts1[1]));
             }
             catch (Exception) { }
             #endregion
@@ -195,7 +214,7 @@ namespace Apteka_Plus
                     ctrl.Font = BUTTON_FONT;
                     ctrl.ForeColor = BUTTON_FORECOLOR;
                     ctrl.BackColor = BUTTON_BACKCOLOR;
-                    ReadUniqueDisign(ctrl as Button);
+                    //ReadUniqueDisign(ctrl as Button);
                 }
                 else
                 {

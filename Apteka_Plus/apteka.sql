@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 22 2024 г., 19:13
+-- Время создания: Апр 02 2024 г., 19:30
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -45,7 +45,7 @@ INSERT INTO `defaultdisign` (`type`, `parametr`, `value`) VALUES
 ('System.Windows.Forms.Button', 'FONT', 'Cambria;14,25'),
 ('System.Windows.Forms.Button', 'FORECOLOR', '-16776961'),
 ('System.Windows.Forms.Button', 'BACKCOLOR', '-25089'),
-('System.Windows.Forms.Panel', 'PANEL_COLOR', '-90');
+('System.Windows.Forms.Panel', 'PANEL_COLOR', '-128');
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `level1` (
   `adress` varchar(200) NOT NULL,
   `pic` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Дамп данных таблицы `level1`
@@ -69,7 +69,9 @@ INSERT INTO `level1` (`id`, `name`, `adress`, `pic`) VALUES
 (1, 'Аптека №1', '', 'Аптека1.jpg'),
 (2, 'Аптека №2', '', 'Аптека2.jpg'),
 (3, 'Аптека №3', '', 'Аптека3.jpg'),
-(4, 'Аптека №4', '', 'Аптека4.jpg');
+(4, 'Аптека №4', '', 'Аптека4.jpg'),
+(5, 'Аптека №5', 'ул. Ефремова, 10', 'Аптека5.jpg'),
+(6, 'Аптека №6', 'ул. Рябикова, 102', 'Аптека6.jpg');
 
 -- --------------------------------------------------------
 
@@ -83,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `level2` (
   `id_apteka` int(11) NOT NULL,
   `pic` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Дамп данных таблицы `level2`
@@ -106,7 +108,10 @@ INSERT INTO `level2` (`id`, `name`, `id_apteka`, `pic`) VALUES
 (15, 'Антибиотики антисептики', 3, '5.jpg'),
 (16, 'Препараты местноанестезирующего действия', 4, '2.jpg'),
 (17, 'Средства для терапии секреторики', 4, '4.jpg'),
-(18, 'Антибиотики антисептики', 4, '5.jpg');
+(18, 'Антибиотики антисептики', 4, '5.jpg'),
+(19, 'Психотропные медикаменты', 5, '1.jpg'),
+(21, 'Антибиотики антисептикики', 6, '5.jpg'),
+(22, 'Психотропные медикаменты', 6, '');
 
 -- --------------------------------------------------------
 
@@ -121,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `level3` (
   `id_class` int(11) NOT NULL,
   `pic` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Дамп данных таблицы `level3`
@@ -147,11 +152,35 @@ INSERT INTO `level3` (`id`, `name`, `id_apteka`, `id_class`, `pic`) VALUES
 (17, 'Анестезин', 2, 7, ''),
 (18, 'Динексан', 2, 7, ''),
 (19, 'Холосас', 2, 8, ''),
-(20, 'Цефиксим', 2, 10, ''),
-(21, 'Сумамед', 2, 10, ''),
-(22, 'Зиннат', 2, 10, ''),
-(23, 'Азитромицин', 2, 10, ''),
-(24, 'Флемоксин', 2, 10, '');
+(20, 'Цефиксим', 2, 10, '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `uniquedisign`
+--
+
+CREATE TABLE IF NOT EXISTS `uniquedisign` (
+  `type` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `form` varchar(50) NOT NULL,
+  `parameter` varchar(50) NOT NULL,
+  `value` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `uniquedisign`
+--
+
+INSERT INTO `uniquedisign` (`type`, `name`, `form`, `parameter`, `value`) VALUES
+('System.Windows.Forms.Button', 'DisignButton', 'MainForm', 'BACKCOLOR', '-65536'),
+('System.Windows.Forms.Button', 'DisignButton', 'MainForm', 'FONT', 'Times New Roman;15,75'),
+('System.Windows.Forms.Button', 'DisignButton', 'MainForm', 'FONT_COLOR', '-1'),
+('System.Windows.Forms.Button', 'AuthButton', 'MainForm', 'FONT', 'Cambria;14,25'),
+('System.Windows.Forms.Button', 'AuthButton', 'MainForm', 'FONT_COLOR', '-65536'),
+('System.Windows.Forms.Button', 'AuthButton', 'MainForm', 'BACKCOLOR', '-1'),
+('System.Windows.Forms.Button', 'AdminFormButton', 'MainForm', 'LOCATION', '800, 15'),
+('System.Windows.Forms.Button', 'AdminFormButton', 'MainForm', 'SIZE', '200, 40');
 
 -- --------------------------------------------------------
 
@@ -167,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `pass` varchar(50) NOT NULL,
   `admin` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `users`
@@ -176,7 +205,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `name`, `familiya`, `login`, `pass`, `admin`) VALUES
 (1, 'Сергей', 'Поврозюк', 'povser', '123', 1),
 (2, 'Вася', 'Петров', 'vas', '123', 0),
-(3, 'Петя', 'Васин', 'petr', '123', 0);
+(3, 'Петя', 'Васин', 'petr', '123', 0),
+(4, 'Валерий', 'Козиков', 'val', '1', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
