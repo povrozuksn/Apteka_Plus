@@ -23,3 +23,4 @@ C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.AdminMe
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.AdminUsersUC.resources
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.DisignUserControl.resources
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.UniqueDiesignForm.resources
+C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.EditPanelForm.resources

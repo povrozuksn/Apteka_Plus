@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Аптеки");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Аптеки");
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.DisignButton = new System.Windows.Forms.Button();
             this.RegButton = new System.Windows.Forms.Button();
@@ -47,9 +47,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.дизайнКнопкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuEditPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.изменениеПанелиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuEditPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -159,7 +162,7 @@
             this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InfoPanel.Location = new System.Drawing.Point(338, 3);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(945, 506);
+            this.InfoPanel.Size = new System.Drawing.Size(945, 498);
             this.InfoPanel.TabIndex = 1;
             this.InfoPanel.Resize += new System.EventHandler(this.InfoPanel_Resize);
             // 
@@ -167,9 +170,9 @@
             // 
             this.CopyRightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.CopyRightPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CopyRightPanel.Location = new System.Drawing.Point(0, 573);
+            this.CopyRightPanel.Location = new System.Drawing.Point(0, 565);
             this.CopyRightPanel.Name = "CopyRightPanel";
-            this.CopyRightPanel.Size = new System.Drawing.Size(1286, 40);
+            this.CopyRightPanel.Size = new System.Drawing.Size(1286, 48);
             this.CopyRightPanel.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -184,7 +187,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1286, 512);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1286, 504);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // treeView1
@@ -192,11 +195,11 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "Узел0";
-            treeNode2.Text = "Аптеки";
+            treeNode1.Name = "Узел0";
+            treeNode1.Text = "Аптеки";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
-            this.treeView1.Size = new System.Drawing.Size(329, 506);
+            treeNode1});
+            this.treeView1.Size = new System.Drawing.Size(329, 498);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -211,14 +214,29 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.дизайнКнопкиToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(185, 28);
             // 
             // дизайнКнопкиToolStripMenuItem
             // 
             this.дизайнКнопкиToolStripMenuItem.Name = "дизайнКнопкиToolStripMenuItem";
-            this.дизайнКнопкиToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.дизайнКнопкиToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
             this.дизайнКнопкиToolStripMenuItem.Text = "Дизайн кнопки";
             this.дизайнКнопкиToolStripMenuItem.Click += new System.EventHandler(this.дизайнКнопкиToolStripMenuItem_Click);
+            // 
+            // contextMenuEditPanel
+            // 
+            this.contextMenuEditPanel.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuEditPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.изменениеПанелиToolStripMenuItem});
+            this.contextMenuEditPanel.Name = "contextMenuEditPanel";
+            this.contextMenuEditPanel.Size = new System.Drawing.Size(214, 56);
+            // 
+            // изменениеПанелиToolStripMenuItem
+            // 
+            this.изменениеПанелиToolStripMenuItem.Name = "изменениеПанелиToolStripMenuItem";
+            this.изменениеПанелиToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
+            this.изменениеПанелиToolStripMenuItem.Text = "Изменение панели";
+            this.изменениеПанелиToolStripMenuItem.Click += new System.EventHandler(this.изменениеПанелиToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -237,6 +255,7 @@
             this.AuthPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuEditPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -260,6 +279,8 @@
         private System.Windows.Forms.Button DisignButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem дизайнКнопкиToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuEditPanel;
+        private System.Windows.Forms.ToolStripMenuItem изменениеПанелиToolStripMenuItem;
     }
 }
 

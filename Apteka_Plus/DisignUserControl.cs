@@ -13,6 +13,7 @@ namespace Apteka_Plus
     public partial class DisignUserControl : UserControl
     {
         public static ContextMenuStrip BUTTON_ContextMenu;
+        public static ContextMenuStrip PANEL_ContextMenu;
 
         #region Параметры НАДПИСИ
         public static Font LABEL_FONT;
@@ -125,6 +126,18 @@ namespace Apteka_Plus
 
         }
 
+        public static void ReadPanelDisign(Panel panel)
+        {
+            #region Чтение параметров размера ПАНЕЛИ
+            try
+            {
+                string height = SQLClass.MySelect("SELECT value FROM paneldisign WHERE type = 'System.Windows.Forms.Panel' AND name = '" + panel.Name + "'  AND param = 'PANEL_HEIGHT'")[0];
+                panel.Height = Convert.ToInt32(height);
+            }
+            catch (Exception) { }
+            #endregion
+        }
+
         public static void ReadUniqueDisign(Button btn)
         {
             #region Чтение параметров выбранной КНОПКИ
@@ -188,6 +201,7 @@ namespace Apteka_Plus
                 if (ctrl is Panel)
                 {
                     ctrl.BackColor = PANEL_COLOR;
+                    ReadPanelDisign(ctrl as Panel);
                 }
                 else
                 {
@@ -334,6 +348,15 @@ namespace Apteka_Plus
                 if (ctrl is Button && Convert.ToBoolean(MainForm.isAdmin))
                 {
                     ctrl.ContextMenuStrip = BUTTON_ContextMenu;
+                }
+                else
+                {
+                    ApplyMenu(ctrl);
+                }
+
+                if (ctrl is Panel && Convert.ToBoolean(MainForm.isAdmin))
+                {
+                    ctrl.ContextMenuStrip = PANEL_ContextMenu;
                 }
                 else
                 {

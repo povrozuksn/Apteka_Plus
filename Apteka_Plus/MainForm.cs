@@ -43,6 +43,7 @@ namespace Apteka_Plus
             string id_apteka;
             string id_classif;
             DisignUserControl.BUTTON_ContextMenu = contextMenuStrip1;
+            DisignUserControl.PANEL_ContextMenu = contextMenuEditPanel;
 
             List<string> apteks = SQLClass.MySelect("SELECT id, name FROM level1");
 
@@ -237,8 +238,6 @@ namespace Apteka_Plus
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //DisignUserControl.ApplyDisign(this);
-
             if (Convert.ToBoolean(isAdmin) && treeView1.Nodes.Count == 1)
             {
                 TreeNode node = new TreeNode("Админка");
@@ -288,6 +287,17 @@ namespace Apteka_Plus
             Button btn = (Button)(cm.SourceControl);
             UniqueDiesignForm uniqueDiesign = new UniqueDiesignForm(btn);
             uniqueDiesign.ShowDialog();
+        }
+
+        private void изменениеПанелиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            ContextMenuStrip cm = (ContextMenuStrip)(item.GetCurrentParent());
+            Panel pan = (Panel)(cm.SourceControl);
+
+            EditPanelForm panform = new EditPanelForm(pan);
+            panform.ShowDialog();
+
         }
     }
 }
