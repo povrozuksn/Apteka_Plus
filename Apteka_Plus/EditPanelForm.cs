@@ -26,10 +26,12 @@ namespace Apteka_Plus
         private void SaveButton_Click(object sender, EventArgs e)
         {
 
-            SQLClass.MyUpDate("DELETE FROM paneldisign WHERE type = '" + ctrl.GetType() + "' AND '" + ctrl.Name + "' AND param = 'PANEL_HEIGHT'");
+            SQLClass.MyUpDate("DELETE FROM paneldisign WHERE type = '" + ctrl.GetType() + "' AND name = '" + ctrl.Name + "' AND param = 'PANEL_HEIGHT'");
 
             SQLClass.MyUpDate("INSERT INTO paneldisign (type, name, param, value) VALUE ('" + ctrl.GetType() + "', '" + ctrl.Name + "', 'PANEL_HEIGHT', '" + HeightTB.Text + "')");
 
+            Close();
+            return;
         }
     }
 }

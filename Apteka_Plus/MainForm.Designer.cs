@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Аптеки");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.DisignButton = new System.Windows.Forms.Button();
             this.RegButton = new System.Windows.Forms.Button();
@@ -49,10 +50,13 @@
             this.дизайнКнопкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuEditPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.изменениеПанелиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.VKpictureBox = new System.Windows.Forms.PictureBox();
             this.AuthPanel.SuspendLayout();
+            this.CopyRightPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuEditPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VKpictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -169,6 +173,7 @@
             // CopyRightPanel
             // 
             this.CopyRightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.CopyRightPanel.Controls.Add(this.VKpictureBox);
             this.CopyRightPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CopyRightPanel.Location = new System.Drawing.Point(0, 565);
             this.CopyRightPanel.Name = "CopyRightPanel";
@@ -229,7 +234,7 @@
             this.contextMenuEditPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.изменениеПанелиToolStripMenuItem});
             this.contextMenuEditPanel.Name = "contextMenuEditPanel";
-            this.contextMenuEditPanel.Size = new System.Drawing.Size(214, 56);
+            this.contextMenuEditPanel.Size = new System.Drawing.Size(214, 28);
             // 
             // изменениеПанелиToolStripMenuItem
             // 
@@ -237,6 +242,17 @@
             this.изменениеПанелиToolStripMenuItem.Size = new System.Drawing.Size(213, 24);
             this.изменениеПанелиToolStripMenuItem.Text = "Изменение панели";
             this.изменениеПанелиToolStripMenuItem.Click += new System.EventHandler(this.изменениеПанелиToolStripMenuItem_Click);
+            // 
+            // VKpictureBox
+            // 
+            this.VKpictureBox.Image = ((System.Drawing.Image)(resources.GetObject("VKpictureBox.Image")));
+            this.VKpictureBox.Location = new System.Drawing.Point(374, 2);
+            this.VKpictureBox.Name = "VKpictureBox";
+            this.VKpictureBox.Size = new System.Drawing.Size(48, 43);
+            this.VKpictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.VKpictureBox.TabIndex = 0;
+            this.VKpictureBox.TabStop = false;
+            this.VKpictureBox.Click += new System.EventHandler(this.VKpictureBox_Click);
             // 
             // MainForm
             // 
@@ -253,9 +269,11 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.AuthPanel.ResumeLayout(false);
             this.AuthPanel.PerformLayout();
+            this.CopyRightPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuEditPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.VKpictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,6 +299,7 @@
         private System.Windows.Forms.ToolStripMenuItem дизайнКнопкиToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuEditPanel;
         private System.Windows.Forms.ToolStripMenuItem изменениеПанелиToolStripMenuItem;
+        public System.Windows.Forms.PictureBox VKpictureBox;
     }
 }
 

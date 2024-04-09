@@ -14,6 +14,7 @@ namespace Apteka_Plus
     {
         public static ContextMenuStrip BUTTON_ContextMenu;
         public static ContextMenuStrip PANEL_ContextMenu;
+        public static int HeightPanel;
 
         #region Параметры НАДПИСИ
         public static Font LABEL_FONT;
@@ -133,6 +134,12 @@ namespace Apteka_Plus
             {
                 string height = SQLClass.MySelect("SELECT value FROM paneldisign WHERE type = 'System.Windows.Forms.Panel' AND name = '" + panel.Name + "'  AND param = 'PANEL_HEIGHT'")[0];
                 panel.Height = Convert.ToInt32(height);
+
+                if(panel.Name == "CopyRightPanel")
+                {
+                    HeightPanel = panel.Height;
+                }
+
             }
             catch (Exception) { }
             #endregion

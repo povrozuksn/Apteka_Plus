@@ -36,6 +36,8 @@ namespace Apteka_Plus
             DisignUserControl.ReadDefaultDisign();
             DisignUserControl.ApplyDisign(this);
             DisignUserControl.ApplyMenu(this);
+
+            VKpictureBox.Size = new Size(DisignUserControl.HeightPanel, DisignUserControl.HeightPanel);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -298,6 +300,11 @@ namespace Apteka_Plus
             EditPanelForm panform = new EditPanelForm(pan);
             panform.ShowDialog();
 
+        }
+
+        private void VKpictureBox_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://vk.com/public200264419");
         }
     }
 }
