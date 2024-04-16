@@ -24,3 +24,5 @@ C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.AdminUs
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.DisignUserControl.resources
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.UniqueDiesignForm.resources
 C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\obj\Debug\Apteka_Plus.EditPanelForm.resources
+C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\bin\Debug\Newtonsoft.Json.dll
+C:\Users\root\source\repos\Apteka_Plus\Apteka_Plus\bin\Debug\Newtonsoft.Json.xml

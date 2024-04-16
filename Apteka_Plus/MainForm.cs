@@ -38,6 +38,9 @@ namespace Apteka_Plus
             DisignUserControl.ApplyMenu(this);
 
             VKpictureBox.Size = new Size(DisignUserControl.HeightPanel, DisignUserControl.HeightPanel);
+
+            APIClass.Weather();
+            WeatherLabel.Text = "Температура " + APIClass.temper +" С";
         }
 
         private void MainForm_Load(object sender, EventArgs e)
