@@ -41,6 +41,8 @@ namespace Apteka_Plus
 
             APIClass.Weather();
             WeatherLabel.Text = "Температура " + APIClass.temper +" С";
+
+            APIClass.Vals();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

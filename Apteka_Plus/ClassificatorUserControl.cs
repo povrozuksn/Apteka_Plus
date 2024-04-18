@@ -28,10 +28,10 @@ namespace Apteka_Plus
             }
             catch (Exception) { }
 
-            List<string> med = SQLClass.MySelect("SELECT id, name, pic FROM level3 WHERE id_class = '" + id_class + "'");
+            List<string> med = SQLClass.MySelect("SELECT id, name, pic, price FROM level3 WHERE id_class = '" + id_class + "'");
 
             int x = 10;
-            for (int i = 0; i < med.Count; i += 3)
+            for (int i = 0; i < med.Count; i += 4)
             {
                 Label lbl = new Label();
                 lbl.Location = new Point(x, 30);
@@ -54,6 +54,13 @@ namespace Apteka_Plus
                 pb.Tag = med[i];
                 pb.Click += new EventHandler(pirture_Click);
                 ViewPanel.Controls.Add(pb);
+
+                Label price_lbl = new Label();
+                price_lbl.Location = new Point(x, 230);
+                price_lbl.Size = new Size(200, 30);
+                price_lbl.Font = new Font("Arial Narrow", 13);
+                price_lbl.Text = "Цена:  " + med[i + 3] + " руб.";
+                ViewPanel.Controls.Add(price_lbl);
 
                 x += 210;
             }

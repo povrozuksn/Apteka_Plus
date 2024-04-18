@@ -43,6 +43,7 @@
             this.HelloLabel = new System.Windows.Forms.Label();
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.CopyRightPanel = new System.Windows.Forms.Panel();
+            this.WeatherLabel = new System.Windows.Forms.Label();
             this.VKpictureBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -51,7 +52,7 @@
             this.дизайнКнопкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuEditPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.изменениеПанелиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.WeatherLabel = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.AuthPanel.SuspendLayout();
             this.CopyRightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VKpictureBox)).BeginInit();
@@ -174,6 +175,7 @@
             // CopyRightPanel
             // 
             this.CopyRightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.CopyRightPanel.Controls.Add(this.comboBox1);
             this.CopyRightPanel.Controls.Add(this.WeatherLabel);
             this.CopyRightPanel.Controls.Add(this.VKpictureBox);
             this.CopyRightPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -181,6 +183,15 @@
             this.CopyRightPanel.Name = "CopyRightPanel";
             this.CopyRightPanel.Size = new System.Drawing.Size(1286, 48);
             this.CopyRightPanel.TabIndex = 2;
+            // 
+            // WeatherLabel
+            // 
+            this.WeatherLabel.AutoSize = true;
+            this.WeatherLabel.Location = new System.Drawing.Point(12, 14);
+            this.WeatherLabel.Name = "WeatherLabel";
+            this.WeatherLabel.Size = new System.Drawing.Size(64, 25);
+            this.WeatherLabel.TabIndex = 1;
+            this.WeatherLabel.Text = "label1";
             // 
             // VKpictureBox
             // 
@@ -256,14 +267,18 @@
             this.изменениеПанелиToolStripMenuItem.Text = "Изменение панели";
             this.изменениеПанелиToolStripMenuItem.Click += new System.EventHandler(this.изменениеПанелиToolStripMenuItem_Click);
             // 
-            // WeatherLabel
+            // comboBox1
             // 
-            this.WeatherLabel.AutoSize = true;
-            this.WeatherLabel.Location = new System.Drawing.Point(12, 14);
-            this.WeatherLabel.Name = "WeatherLabel";
-            this.WeatherLabel.Size = new System.Drawing.Size(64, 25);
-            this.WeatherLabel.TabIndex = 1;
-            this.WeatherLabel.Text = "label1";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "RUB",
+            "USD",
+            "EUR",
+            "CHY"});
+            this.comboBox1.Location = new System.Drawing.Point(803, 11);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 33);
+            this.comboBox1.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -313,6 +328,7 @@
         private System.Windows.Forms.ToolStripMenuItem изменениеПанелиToolStripMenuItem;
         public System.Windows.Forms.PictureBox VKpictureBox;
         private System.Windows.Forms.Label WeatherLabel;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
