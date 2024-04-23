@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +17,9 @@ namespace Apteka_Plus
         public static int isAdmin;
         public static string Login = "";
         public static string NameFamily = "";
+        public static string OldVal = "RUB";
+        public static string NewVal = "RUB";
+
 
         public MainForm()
         {
@@ -43,6 +45,7 @@ namespace Apteka_Plus
             WeatherLabel.Text = "Температура " + APIClass.temper +" С";
 
             APIClass.Vals();
+            ValComboBox.SelectedIndex = 0;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -310,6 +313,38 @@ namespace Apteka_Plus
         private void VKpictureBox_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://vk.com/public200264419");
+        }
+
+        private void ValComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OldVal = NewVal;
+            NewVal = ValComboBox.Text;
+
+            double coef = APIClass.vals[OldVal] / APIClass.vals[NewVal];
+
+            var pricelbl = Controls.Find("PriceLabel", true);
+
+            foreach (Label lbl in pricelbl)
+            {
+                double price = Convert.ToDouble(lbl.Text);
+                price = Math.Round((price * coef), 2);
+                lbl.Text = price.ToString();
+            }
+
+            var lbllbl = Controls.Find("LabelLabel", true);
+
+            foreach (Label lbl in lbllbl)
+            {
+                if (NewVal == "RUB")
+                    lbl.Text = "Цена, руб.: ";
+                else if (NewVal == "USD")
+                    lbl.Text = "Цена, $";
+                else if (NewVal == "EUR")
+                    lbl.Text = "Цена, €";
+                else if (NewVal == "CNY")
+                    lbl.Text = "Цена, ¥";
+            }
+
         }
     }
 }

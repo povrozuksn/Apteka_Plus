@@ -31,6 +31,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.PriceLabel = new System.Windows.Forms.Label();
+            this.LabelLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,16 +56,26 @@
             // PriceLabel
             // 
             this.PriceLabel.AutoSize = true;
-            this.PriceLabel.Location = new System.Drawing.Point(512, 86);
+            this.PriceLabel.Location = new System.Drawing.Point(605, 102);
             this.PriceLabel.Name = "PriceLabel";
             this.PriceLabel.Size = new System.Drawing.Size(64, 25);
             this.PriceLabel.TabIndex = 2;
             this.PriceLabel.Text = "label1";
             // 
+            // LabelLabel
+            // 
+            this.LabelLabel.AutoSize = true;
+            this.LabelLabel.Location = new System.Drawing.Point(467, 102);
+            this.LabelLabel.Name = "LabelLabel";
+            this.LabelLabel.Size = new System.Drawing.Size(115, 25);
+            this.LabelLabel.TabIndex = 3;
+            this.LabelLabel.Text = "Цена, руб.: ";
+            // 
             // MedicomentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LabelLabel);
             this.Controls.Add(this.PriceLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.pictureBox1);
@@ -83,5 +94,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label PriceLabel;
+        private System.Windows.Forms.Label LabelLabel;
     }
 }

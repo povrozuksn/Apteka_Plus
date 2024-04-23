@@ -14,6 +14,8 @@ namespace Apteka_Plus
     {
         public static string temper;
 
+        public static Dictionary<string, double> vals = new Dictionary<string, double>();
+
         public static void Weather()
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.open-meteo.com/v1/forecast?latitude=54.19&longitude=48.22&hourly=temperature_2m&timezone=Europe%2FMoscow&forecast_days=1");
@@ -50,6 +52,11 @@ namespace Apteka_Plus
             double Usd = Convert.ToDouble(usd);
             double Eur = Convert.ToDouble(eur);
             double Cny = Convert.ToDouble(cny);
+
+            vals.Add("RUB", 1);
+            vals.Add("USD", Usd);
+            vals.Add("EUR", Eur);
+            vals.Add("CNY", Cny);
         }
     }
 }

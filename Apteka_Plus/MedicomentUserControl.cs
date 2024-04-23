@@ -21,7 +21,7 @@ namespace Apteka_Plus
             List<string> medicoment = SQLClass.MySelect("SELECT id, name, pic, price FROM level3 WHERE id = '" + id + "'");
 
             NameLabel.Text = medicoment[1];
-            PriceLabel.Text = "Цена:  " + medicoment[3] + " руб.";
+            PriceLabel.Text = medicoment[3];
 
             try
             {

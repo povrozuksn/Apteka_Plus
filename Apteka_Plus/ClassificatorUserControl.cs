@@ -55,14 +55,21 @@ namespace Apteka_Plus
                 pb.Click += new EventHandler(pirture_Click);
                 ViewPanel.Controls.Add(pb);
 
-                Label price_lbl = new Label();
-                price_lbl.Location = new Point(x, 230);
-                price_lbl.Size = new Size(200, 30);
-                price_lbl.Font = new Font("Arial Narrow", 13);
-                price_lbl.Text = "Цена:  " + med[i + 3] + " руб.";
-                ViewPanel.Controls.Add(price_lbl);
+                Label LabelLabel = new Label();
+                LabelLabel.Location = new Point(x, 230);
+                LabelLabel.Size = new Size(120, 30);
+                LabelLabel.Font = new Font("Arial Narrow", 13);
+                LabelLabel.Text = "Цена, руб.:  ";
+                ViewPanel.Controls.Add(LabelLabel);
 
-                x += 210;
+                Label PriceLabel = new Label();
+                PriceLabel.Location = new Point(x+120, 230);
+                PriceLabel.Size = new Size(100, 30);
+                PriceLabel.Font = new Font("Arial Narrow", 13);
+                PriceLabel.Text = med[i + 3];
+                ViewPanel.Controls.Add(PriceLabel);
+
+                x += 230;
             }
 
 
