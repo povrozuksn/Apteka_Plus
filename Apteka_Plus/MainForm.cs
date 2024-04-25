@@ -46,6 +46,8 @@ namespace Apteka_Plus
 
             APIClass.Vals();
             ValComboBox.SelectedIndex = 0;
+
+            ExchangeLabel.Text = "Курс: $ " + APIClass.vals["USD"] + ",  € " + APIClass.vals["EUR"] + ",  ¥ " + APIClass.vals["CNY"];
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -91,6 +93,7 @@ namespace Apteka_Plus
         {
             if(e.Node.Level == 0 && e.Node.Text == "Аптеки")
             {
+                ValComboBox.SelectedIndex = 0;
                 MainUserControl mainUC = new MainUserControl();
                 mainUC.Dock = DockStyle.Fill;
                 InfoPanel.Controls.Clear();
@@ -99,6 +102,7 @@ namespace Apteka_Plus
             
             else if(e.Node.Level == 1 && e.Node.Parent.Text == "Аптеки")
             {
+                ValComboBox.SelectedIndex = 0;
                 AptekaUserControl aptekaUC = new AptekaUserControl(e.Node.Tag.ToString());
                 aptekaUC.Dock = DockStyle.Fill;
                 InfoPanel.Controls.Clear();
@@ -107,6 +111,7 @@ namespace Apteka_Plus
 
             else if (e.Node.Level == 2 && e.Node.Parent.Parent.Text == "Аптеки")
             {
+                ValComboBox.SelectedIndex = 0;
                 ClassificatorUserControl classUC = new ClassificatorUserControl(e.Node.Tag.ToString());
                 classUC.Dock = DockStyle.Fill;
                 InfoPanel.Controls.Clear();
@@ -115,6 +120,7 @@ namespace Apteka_Plus
 
             else if (e.Node.Level == 3 && e.Node.Parent.Parent.Parent.Text == "Аптеки")
             {
+                ValComboBox.SelectedIndex = 0;
                 MedicomentUserControl medicokaUC = new MedicomentUserControl(e.Node.Tag.ToString());
                 medicokaUC.Dock = DockStyle.Fill;
                 InfoPanel.Controls.Clear();

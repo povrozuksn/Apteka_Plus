@@ -56,6 +56,7 @@ namespace Apteka_Plus
                 ViewPanel.Controls.Add(pb);
 
                 Label LabelLabel = new Label();
+                LabelLabel.Name = "LabelLabel";
                 LabelLabel.Location = new Point(x, 230);
                 LabelLabel.Size = new Size(120, 30);
                 LabelLabel.Font = new Font("Arial Narrow", 13);
@@ -63,6 +64,7 @@ namespace Apteka_Plus
                 ViewPanel.Controls.Add(LabelLabel);
 
                 Label PriceLabel = new Label();
+                PriceLabel.Name = "PriceLabel";
                 PriceLabel.Location = new Point(x+120, 230);
                 PriceLabel.Size = new Size(100, 30);
                 PriceLabel.Font = new Font("Arial Narrow", 13);
