@@ -48,7 +48,11 @@ namespace Apteka_Plus
             ValComboBox.SelectedIndex = 0;
 
             ExchangeLabel.Text = "Курс: $ " + APIClass.vals["USD"] + ",  € " + APIClass.vals["EUR"] + ",  ¥ " + APIClass.vals["CNY"];
+
+            APIClass.MedPrice();
+
         }
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {

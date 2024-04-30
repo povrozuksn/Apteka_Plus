@@ -19,11 +19,10 @@ namespace Apteka_Plus
         public static void Weather()
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.open-meteo.com/v1/forecast?latitude=54.19&longitude=48.22&hourly=temperature_2m&timezone=Europe%2FMoscow&forecast_days=1");
+            
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
             Stream stream = response.GetResponseStream();
             StreamReader sr = new StreamReader(stream);
-
             string sReadData = sr.ReadToEnd();
             response.Close();
 
@@ -35,16 +34,14 @@ namespace Apteka_Plus
         public static void Vals()
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.cbr-xml-daily.ru/daily_json.js");
+           
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
             Stream stream = response.GetResponseStream();
             StreamReader sr = new StreamReader(stream);
-
             string sReadData = sr.ReadToEnd();
             response.Close();
 
             dynamic v = JsonConvert.DeserializeObject(sReadData);
-
             string usd = v.Valute.USD.Value.ToString();
             string eur = v.Valute.EUR.Value.ToString();
             string cny = v.Valute.CNY.Value.ToString();
@@ -57,6 +54,22 @@ namespace Apteka_Plus
             vals.Add("USD", Usd);
             vals.Add("EUR", Eur);
             vals.Add("CNY", Cny);
+        }
+
+        public static void MedPrice()
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://apteka.ru/product/levomiczetin-500-mg-20-sht-tabletki-5e32676f65b5ab0001650bc2/");
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream stream = response.GetResponseStream();
+            StreamReader sr = new StreamReader(stream);
+            string sReadData = sr.ReadToEnd();
+            response.Close();
+
+            string[] lines = sReadData.Split(new char[] { '\n' });
+            int pos = lines[4].IndexOf("moneyprice__roubles");
+            string price = lines[4].Substring(pos+21,3);
+
         }
     }
 }
