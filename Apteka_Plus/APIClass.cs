@@ -56,20 +56,5 @@ namespace Apteka_Plus
             vals.Add("CNY", Cny);
         }
 
-        public static void MedPrice()
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://apteka.ru/product/levomiczetin-500-mg-20-sht-tabletki-5e32676f65b5ab0001650bc2/");
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader sr = new StreamReader(stream);
-            string sReadData = sr.ReadToEnd();
-            response.Close();
-
-            string[] lines = sReadData.Split(new char[] { '\n' });
-            int pos = lines[4].IndexOf("moneyprice__roubles");
-            string price = lines[4].Substring(pos+21,3);
-
-        }
     }
 }

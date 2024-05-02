@@ -49,8 +49,6 @@ namespace Apteka_Plus
 
             ExchangeLabel.Text = "Курс: $ " + APIClass.vals["USD"] + ",  € " + APIClass.vals["EUR"] + ",  ¥ " + APIClass.vals["CNY"];
 
-            APIClass.MedPrice();
-
         }
 
 

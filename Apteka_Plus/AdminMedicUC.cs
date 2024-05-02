@@ -5,14 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Apteka_Plus
 {
     public partial class AdminMedicUC : UserControl
     {
+
         public AdminMedicUC()
         {
             InitializeComponent();
@@ -67,7 +70,8 @@ namespace Apteka_Plus
             InfoMedicPanel.Controls.Add(label3);
             InfoMedicPanel.Controls.Add(label13);
             InfoMedicPanel.Controls.Add(label2);
-            
+            InfoMedicPanel.Controls.Add(label7);
+
             List<string> classif = SQLClass.MySelect("SELECT id, name, id_apteka FROM level2");
 
             NameClassifCB.Items.Clear();
@@ -77,9 +81,9 @@ namespace Apteka_Plus
                 NameClassifCB.Items.Add(classif[i] + ". " + classif[i + 1] + ". " + apteks[0] + ". " + apteks[1]);
             }
 
-            List<string> Medic = SQLClass.MySelect("SELECT id, name, id_apteka, id_class FROM level3");
+            List<string> Medic = SQLClass.MySelect("SELECT id, name, id_apteka, id_class, price, link FROM level3");
             int y = 50;
-            for (int i = 0; i < Medic.Count; i += 4)
+            for (int i = 0; i < Medic.Count; i += 6)
             {
                 Label lbl = new Label();
                 lbl.Location = new Point(20, y);
@@ -105,8 +109,25 @@ namespace Apteka_Plus
                 lbl2.Text = aptek[0];
                 InfoMedicPanel.Controls.Add(lbl2);
 
+                Label lbl_price = new Label();
+                lbl_price.Location = new Point(750, y);
+                lbl_price.Size = new Size(100, 30);
+                lbl_price.Font = new Font("Arial Narrow", 13);
+                lbl_price.Text = Medic[i + 4];
+                InfoMedicPanel.Controls.Add(lbl_price);
+
+                Button btn_price = new Button();
+                btn_price.Location = new Point(850, y);
+                btn_price.Size = new Size(100, 30);
+                btn_price.Font = new Font("Arial Narrow", 12);
+                btn_price.Click += new EventHandler(UpdatePrice);
+                btn_price.Text = "Обновить цену";
+                btn_price.Tag = Medic[i + 5];
+                btn_price.AccessibleName = Medic[i];
+                InfoMedicPanel.Controls.Add(btn_price);
+
                 Button btn = new Button();
-                btn.Location = new Point(750, y);
+                btn.Location = new Point(950, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Arial Narrow", 12);
                 btn.Click += new EventHandler(DeleteMedicClick);
@@ -116,7 +137,6 @@ namespace Apteka_Plus
                 y += 35;
             }
         }
-
 
         private void DeleteMedicClick(object sender, EventArgs e)
         {
@@ -134,7 +154,38 @@ namespace Apteka_Plus
             AdminMedicUC_Load(sender, e);
         }
 
+        public static float MedPrice(string link)
+        {
+            if(link != "")
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(link);
 
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream stream = response.GetResponseStream();
+                StreamReader sr = new StreamReader(stream);
+                string sReadData = sr.ReadToEnd();
+                response.Close();
+
+                string[] lines = sReadData.Split(new char[] { '\n' });
+                int pos = lines[4].IndexOf("moneyprice__roubles");
+                string price = lines[4].Substring(pos + 21, 3);
+                return (float)Convert.ToDouble(price);
+            }
+            else
+            {
+                return 0;
+            }
+            
+        }
+
+        private void UpdatePrice(object sender, EventArgs e)
+        {
+            float price = 0;
+            Button btn = (Button)sender;
+            price = MedPrice(btn.Tag.ToString());
+            SQLClass.MyUpDate("UPDATE level3 SET price = '" + price + "' WHERE id = '" + btn.AccessibleName + "' ");
+            AdminMedicUC_Load(sender, e);
+        }
 
     }
 }

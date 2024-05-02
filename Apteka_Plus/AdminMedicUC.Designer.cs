@@ -43,6 +43,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label7 = new System.Windows.Forms.Label();
             this.InfoMedicPanel.SuspendLayout();
             this.AddMedicPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MedicPictureBox)).BeginInit();
@@ -60,6 +61,7 @@
             // InfoMedicPanel
             // 
             this.InfoMedicPanel.AutoScroll = true;
+            this.InfoMedicPanel.Controls.Add(this.label7);
             this.InfoMedicPanel.Controls.Add(this.label3);
             this.InfoMedicPanel.Controls.Add(this.label2);
             this.InfoMedicPanel.Controls.Add(this.label1);
@@ -67,7 +69,7 @@
             this.InfoMedicPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.InfoMedicPanel.Location = new System.Drawing.Point(0, 0);
             this.InfoMedicPanel.Name = "InfoMedicPanel";
-            this.InfoMedicPanel.Size = new System.Drawing.Size(867, 225);
+            this.InfoMedicPanel.Size = new System.Drawing.Size(985, 225);
             this.InfoMedicPanel.TabIndex = 5;
             // 
             // label3
@@ -110,7 +112,7 @@
             this.AddMedicPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AddMedicPanel.Location = new System.Drawing.Point(0, 225);
             this.AddMedicPanel.Name = "AddMedicPanel";
-            this.AddMedicPanel.Size = new System.Drawing.Size(867, 314);
+            this.AddMedicPanel.Size = new System.Drawing.Size(985, 314);
             this.AddMedicPanel.TabIndex = 6;
             // 
             // NameMedicTB
@@ -148,7 +150,7 @@
             this.AddMedicButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.AddMedicButton.Location = new System.Drawing.Point(0, 269);
             this.AddMedicButton.Name = "AddMedicButton";
-            this.AddMedicButton.Size = new System.Drawing.Size(867, 45);
+            this.AddMedicButton.Size = new System.Drawing.Size(985, 45);
             this.AddMedicButton.TabIndex = 9;
             this.AddMedicButton.Text = "Добавить";
             this.AddMedicButton.UseVisualStyleBackColor = true;
@@ -195,6 +197,15 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(743, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 25);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Цена";
+            // 
             // AdminMedicUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -204,7 +215,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AdminMedicUC";
-            this.Size = new System.Drawing.Size(867, 539);
+            this.Size = new System.Drawing.Size(985, 539);
             this.Load += new System.EventHandler(this.AdminMedicUC_Load);
             this.InfoMedicPanel.ResumeLayout(false);
             this.InfoMedicPanel.PerformLayout();
@@ -232,5 +243,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label7;
     }
 }
